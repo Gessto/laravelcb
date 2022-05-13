@@ -26,10 +26,6 @@
         "maatwebsite/excel": "^3.1",
         "intervention/imagecache":"^2.3",
         "laravel/framework": "^7.30|^8.34",
-        "illuminate/database": "^9.0",
-        "illuminate/support": "^9.0",
-        "illuminate/config": "^9.0",
-        "illuminate/console": "^9.0",
         "doctrine/dbal": "^3.0",
         "krlove/code-generator": "^1.0"
     },
