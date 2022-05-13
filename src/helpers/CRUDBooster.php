@@ -1288,6 +1288,7 @@ class CRUDBooster
 
     public static function generateAPI($controller_name, $table_name, $permalink, $method_type = 'post')
     {
+	Artisan::call('krlove:generate:model '.strtoupper($table).' --table-name='.$table);
         $php = '
 		<?php namespace App\Http\Controllers;
 
@@ -1295,6 +1296,7 @@ class CRUDBooster
 		use Request;
 		use DB;
 		use CRUDBooster;
+		use App\'.strtoupper($table).';
 
 		class Api'.$controller_name.'Controller extends \crocodicstudio\crudbooster\controllers\ApiController {
 
@@ -1376,6 +1378,8 @@ class CRUDBooster
         $button_bulk_action = 'TRUE';
         $global_privilege = 'FALSE';
 
+	Artisan::call('krlove:generate:model '.strtoupper($table).' --table-name='.$table);
+
         $php = '
 <?php namespace App\Http\Controllers;
 
@@ -1383,6 +1387,7 @@ class CRUDBooster
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use App\'.strtoupper($table).';
 
 	class Admin'.$controllername.' extends \crocodicstudio\crudbooster\controllers\CBController {
 
