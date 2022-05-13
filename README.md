@@ -1,22 +1,16 @@
-# :rocket: CRUDBOOSTER - Laravel CRUD Generator (New)
-[![Latest Stable Version](https://poser.pugx.org/crocodicstudio/crudbooster/v/stable)](https://packagist.org/packages/crocodicstudio/crudbooster)
-[![Total Downloads](https://poser.pugx.org/crocodicstudio/crudbooster/downloads)](https://packagist.org/packages/crocodicstudio/crudbooster)
-[![License](https://poser.pugx.org/crocodicstudio/crudbooster/license)](https://packagist.org/packages/crocodicstudio/crudbooster)
-
+# :rocket: Webillium CMS - Laravel CRUD Generator (New)
 > Laravel CRUD Generator, Make a Web Application Just In Minutes, Even With Less Code and fewer Steps !
 
-# About CRUDBooster
-CRUDBooster is a Laravel CRUD Generator. With a new concept of scaffolding, very easy for the beginner and professional. It's easy to use, easy to custom, and very flexible. Don't limit your mind, CRUDBooster gives us a true flexibility to develop an app. You can utilize its built in CRUD Generator or even you just need for your master data only.
+# About Webillium CMS
+Webillium CMS is a Laravel CRUD Generator. With a new concept of scaffolding, very easy for the beginner and professional. It's easy to use, easy to custom, and very flexible. Don't limit your mind, Webillium CMS gives us a true flexibility to develop an app. You can utilize its built in CRUD Generator or even you just need for your master data only.
 
 ## Let's Get Started
 ### [Installation](/docs/en/installation.md)
 ### [Documentation](/docs/en/index.md)
 
-## Support
-All issues, bugs or help are in one place, in [CRUDBoster Issues](https://github.com/crocodic-studio/crudbooster/issues). To request help or report a problem, centralize everything in the [CRUDBoster Issues](https://github.com/crocodic-studio/crudbooster/issues). Follow the guidelines in the "Using CRUDBooster Issues Page" session.
 
 ## Important Note To Developer
-Dear Developer, you are not end new user, to use CRUDBooster, **Laravel knowledge** is a must!, CRUDBooster is just an additional package **Laravel Framework** to help use more efficient in development. If you dont have a laravel knowledge, so nightmare will come to you :D. We can't help you as you want in every issues especially basic issues of web development instead you can find out in internet (stackoverflow or any other)
+Dear Developer, you are not end new user, to use Webillium CMS, **Laravel knowledge** is a must!, Webillium CMS is just an additional package **Laravel Framework** to help use more efficient in development. If you dont have a laravel knowledge, so nightmare will come to you :D. We can't help you as you want in every issues especially basic issues of web development instead you can find out in internet (stackoverflow or any other)
 
 ## Contribution
 
@@ -49,7 +43,7 @@ To post you should detail the most about what happened. Specify in detail:
 - Operating system (name, version and architecture)
 - Web server (name, version and architecture)
 - Browser (name, version and architecture)
-- CRUDBooster version
+- Webillium CMS version
 - Laravel version
 - What is the problem?
 - How should it happen? What was the expected behavior?
@@ -70,7 +64,7 @@ If there is no interaction for a long period of time, it will be assumed that it
 7. Thanks To All Funders
 
 ## License 
-CRUDBooster is under [MIT License](https://opensource.org/licenses/MIT)
+Webillium CMS is under [MIT License](https://opensource.org/licenses/MIT)
 
 ### :star: Your Stars Make Us Do More :star:
 As always if you found this package useful and you want to encourage us to maintain and work on it. Just press the star button to declare your willing.
