@@ -10,14 +10,14 @@ class CrudboosterVersionCommand extends Command
      *
      * @var string
      */
-    protected $name = 'crudbooster:version';
+    protected $name = 'webillium:version';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'CRUDBooster Version Command';
+    protected $description = 'Webillium CMS Version Command';
 
     /**
      * Execute the console command.
