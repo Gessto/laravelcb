@@ -89,7 +89,7 @@ class CrudboosterUpdateCommand extends Command
 #  \____/_/ |_|\____/_____/_____/\____/\____/____/\__/\___/_/     
 #                                                                                                                       
 			");
-        $this->info('--------- :===: Thanks for choosing CRUDBooster :==: ---------------');
+        $this->info('--------- :===: Thanks for choosing Webillium CMS :==: ---------------');
         $this->info('====================================================================');
     }
 
