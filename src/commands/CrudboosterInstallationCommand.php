@@ -15,14 +15,14 @@ class CrudboosterInstallationCommand extends Command
      *
      * @var string
      */
-    protected $name = 'crudbooster:install';
+    protected $name = 'webillium:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'CRUDBooster Installation Command';
+    protected $description = 'Webillium CMS Installation Command';
 
     /**
      * Execute the console command.
