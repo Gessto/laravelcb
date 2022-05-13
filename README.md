@@ -1,4 +1,4 @@
-# :rocket: CRUDBOOSTER - Laravel CRUD Generator
+# :rocket: CRUDBOOSTER - Laravel CRUD Generator (New)
 [![Latest Stable Version](https://poser.pugx.org/crocodicstudio/crudbooster/v/stable)](https://packagist.org/packages/crocodicstudio/crudbooster)
 [![Total Downloads](https://poser.pugx.org/crocodicstudio/crudbooster/downloads)](https://packagist.org/packages/crocodicstudio/crudbooster)
 [![License](https://poser.pugx.org/crocodicstudio/crudbooster/license)](https://packagist.org/packages/crocodicstudio/crudbooster)
@@ -69,17 +69,8 @@ If there is no interaction for a long period of time, it will be assumed that it
 6. Thanks To All [Developers](https://github.com/crocodic-studio/crudbooster/graphs/contributors)
 7. Thanks To All Funders
 
-## Support & Donation
-Hi thanks for using my open source project, you could support me via :
-[https://saweria.co/ferryariawan](https://saweria.co/ferryariawan)
-or via [https://buymeacoffee.com/ferryariawan](https://buymeacoffee.com/ferryariawan)
-
-## Contact Us For Business
-Email : crudbooster@gmail.com
-
 ## License 
 CRUDBooster is under [MIT License](https://opensource.org/licenses/MIT)
-
 
 ### :star: Your Stars Make Us Do More :star:
 As always if you found this package useful and you want to encourage us to maintain and work on it. Just press the star button to declare your willing.
