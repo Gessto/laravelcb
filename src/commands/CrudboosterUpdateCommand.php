@@ -15,14 +15,14 @@ class CrudboosterUpdateCommand extends Command
      *
      * @var string
      */
-    protected $name = 'crudbooster:update';
+    protected $name = 'webillium:update';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'CRUDBooster Update Command';
+    protected $description = 'Webillium CMS Update Command';
 
     /**
      * Execute the console command.
