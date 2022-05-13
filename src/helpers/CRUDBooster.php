@@ -1296,8 +1296,7 @@ class CRUDBooster
 		use Request;
 		use DB;
 		use CRUDBooster;
-		use App\'.strtoupper($table).';
-
+		use App\\'.strtoupper($table).'.';'.'
 		class Api'.$controller_name.'Controller extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
@@ -1387,7 +1386,7 @@ class CRUDBooster
 	use Request;
 	use DB;
 	use CRUDBooster;
-	use App\'.strtoupper($table).';
+	use App\\'.strtoupper($table).';
 
 	class Admin'.$controllername.' extends \crocodicstudio\crudbooster\controllers\CBController {
 
