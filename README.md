@@ -8,12 +8,12 @@ Webillium CMS is a Laravel CRUD Generator. With a new concept of scaffolding, ve
 ## Instalation
 ```
 "require": {
-"crocodicstudio/crudbooster": "v5.6.x-dev"
+    "crocodicstudio/crudbooster": "v5.6.x-dev"
 },
 "repositories": [
 {
-"url": "https://github.com/Gessto/laravelcb.git",
-"type": "git"
+    "url": "https://github.com/Gessto/laravelcb.git",
+    "type": "git"
 }
 ]
 ```
