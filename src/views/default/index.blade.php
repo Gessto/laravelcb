@@ -61,10 +61,14 @@
             @if($button_bulk_action && ( ($button_delete && CRUDBooster::isDelete()) || $button_selected) )
                 <div class="pull-{{ cbLang('left') }}">
                     <div class="selected-action" style="display:inline-block;position:relative;">
-                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                                    class='fa fa-check-square-o'></i> {{cbLang("button_selected_action")}}
-                            <span class="fa fa-caret-down"></span></button>
+
+                        <a href="#" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            {{cbLang("button_selected_action")}}
+                        </a>
+
+
                         <ul class="dropdown-menu">
+
                             @if($button_delete && CRUDBooster::isDelete())
                                 <li><a href="javascript:void(0)" data-name='delete' title='{{cbLang('action_delete_selected')}}'><i
                                                 class="fa fa-trash"></i> {{cbLang('action_delete_selected')}}</a></li>
@@ -81,10 +85,14 @@
                     </div><!--end-selected-action-->
                 </div><!--end-pull-left-->
             @endif
-            <div class="box-tools pull-{{ cbLang('right') }}" style="position: relative;margin-top: -5px;margin-right: -10px">
+                @if($button_bulk_action && ( ($button_delete && CRUDBooster::isDelete()) || $button_selected) )
+                    <div style="float:right; margin-top: -50px;">
+                    @else
+                    <div style="float:right; margin-bottom: 25px;">
+                @endif
 
                 @if($button_filter)
-                    <a style="margin-top:-23px" href="javascript:void(0)" id='btn_advanced_filter' data-url-parameter='{{$build_query}}'
+                    <a  href="javascript:void(0)" id='btn_advanced_filter' data-url-parameter='{{$build_query}}'
                        title='{{cbLang('filter_dialog_title')}}' class="btn btn-sm btn-default {{(Request::get('filter_column'))?'active':''}}">
                         <i class="fa fa-filter"></i> {{cbLang("button_filter")}}
                     </a>
@@ -116,7 +124,7 @@
                 <form method='get' id='form-limit-paging' style="display:inline-block" action='{{Request::url()}}'>
                     {!! CRUDBooster::getUrlParameters(['limit']) !!}
                     <div class="input-group">
-                        <select onchange="$('#form-limit-paging').submit()" name='limit' style="width: 56px;" class='form-control input-sm'>
+                        <select onchange="$('#form-limit-paging').submit()" name='limit' style="width: 80px;" class='form-control input-sm'>
                             <option {{($limit==5)?'selected':''}} value='5'>5</option>
                             <option {{($limit==10)?'selected':''}} value='10'>10</option>
                             <option {{($limit==20)?'selected':''}} value='20'>20</option>

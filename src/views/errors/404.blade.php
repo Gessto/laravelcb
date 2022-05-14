@@ -1,56 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
-    <title>404 PAGE NOT FOUND</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
-    <link href="{{asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Theme style -->
-    <link href="{{asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>{{cbLang('page_not_found_text')}}</title>
 
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <style>
-        .login-box-body {
-            box-shadow: 0px 0px 25px #999999;
-        }
+    <!-- CSS Libraries -->
 
-        body {
-            background: #ededed;
-        }
-    </style>
-</head>
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
+    <!-- Start GA -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-94034622-3');
+    </script>
+    <!-- /END GA --></head>
+
 <body>
+<div id="app">
+    <section class="section">
+        <div class="container mt-5">
+            <div class="page-error">
+                <div class="page-inner">
+                    <h1>404</h1>
+                    <div class="page-description">
+                        {{cbLang('page_not_found_text')}}
+                    </div>
+                    <div class="page-search">
+                        <div class="mt-3">
+                            <a href="#">{{cbLang('page_not_found_tips')}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="simple-footer mt-5">
+                Copyright © Stisla 2018
+            </div>
+        </div>
+    </section>
+</div>
 
-<!-- Main content -->
-<section class="content">
+<!-- General JS Scripts -->
+<script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/tooltip.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
+<script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
 
-    <div class="error-page">
-        <h2 class="headline text-yellow"> 404</h2>
-        <div class="error-content">
-            <h3><i class="fa fa-warning text-yellow"></i> {{cbLang('page_not_found')}}</h3>
-            <p>
-                {{cbLang('page_not_found_text')}}
-            </p>
-            <p>Tips : <br/>
-                {{cbLang('page_not_found_tips')}}
-            </p>
-        </div><!-- /.error-content -->
-    </div><!-- /.error-page -->
-</section><!-- /.content -->
+<!-- JS Libraies -->
 
+<!-- Page Specific JS File -->
 
-<!-- jQuery 2.2.3 -->
-<script src="{{asset('vendor/crudbooster/assets/adminlte/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
-<!-- Bootstrap 3.4.1 JS -->
-<script src="{{asset('vendor/crudbooster/assets/adminlte/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-</body>
-</html>
+<!-- Template JS File -->
+<script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
+<script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+
+</body></html>

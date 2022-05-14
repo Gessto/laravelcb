@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div style="width:750px;margin:0 auto ">
+    <div class="col-md-12">
 
 
         @if(CRUDBooster::getCurrentMethod() != 'getProfile')
@@ -42,53 +42,53 @@
                         <div class="text-danger">{{ $errors->first('is_superadmin') }}</div>
                     </div>
 
-                    <div class='form-group'>
-                        <label>{{cbLang('chose_theme_color')}}</label>
-                        <select name='theme_color' class='form-control' required>
-                            <option value=''>{{cbLang('chose_theme_color_select')}}</option>
-                            <?php
-                            $skins = array(
-                                'skin-blue',
-                                'skin-blue-light',
-                                'skin-yellow',
-                                'skin-yellow-light',
-                                'skin-green',
-                                'skin-green-light',
-                                'skin-purple',
-                                'skin-purple-light',
-                                'skin-red',
-                                'skin-red-light',
-                                'skin-black',
-                                'skin-black-light'
-                            );
-                            foreach($skins as $skin):
-                            ?>
-                            <option <?=(@$row->theme_color == $skin) ? "selected" : ""?> value='<?=$skin?>'><?=ucwords(str_replace('-', ' ', $skin))?></option>
-                            <?php endforeach;?>
-                        </select>
-                        <div class="text-danger">{{ $errors->first('theme_color') }}</div>
-                        @push('bottom')
-                            <script type="text/javascript">
-                                $(function () {
-                                    $("select[name=theme_color]").change(function () {
-                                        var n = $(this).val();
-                                        $("body").attr("class", n);
-                                    })
+{{--                    <div class='form-group'>--}}
+{{--                        <label>{{cbLang('chose_theme_color')}}</label>--}}
+{{--                        <select name='theme_color' class='form-control' required>--}}
+{{--                            <option value=''>{{cbLang('chose_theme_color_select')}}</option>--}}
+{{--                            <?php--}}
+{{--                            $skins = array(--}}
+{{--                                'skin-blue',--}}
+{{--                                'skin-blue-light',--}}
+{{--                                'skin-yellow',--}}
+{{--                                'skin-yellow-light',--}}
+{{--                                'skin-green',--}}
+{{--                                'skin-green-light',--}}
+{{--                                'skin-purple',--}}
+{{--                                'skin-purple-light',--}}
+{{--                                'skin-red',--}}
+{{--                                'skin-red-light',--}}
+{{--                                'skin-black',--}}
+{{--                                'skin-black-light'--}}
+{{--                            );--}}
+{{--                            foreach($skins as $skin):--}}
+{{--                            ?>--}}
+{{--                            <option <?=(@$row->theme_color == $skin) ? "selected" : ""?> value='<?=$skin?>'><?=ucwords(str_replace('-', ' ', $skin))?></option>--}}
+{{--                            <?php endforeach;?>--}}
+{{--                        </select>--}}
+{{--                        <div class="text-danger">{{ $errors->first('theme_color') }}</div>--}}
+{{--                        @push('bottom')--}}
+{{--                            <script type="text/javascript">--}}
+{{--                                $(function () {--}}
+{{--                                    $("select[name=theme_color]").change(function () {--}}
+{{--                                        var n = $(this).val();--}}
+{{--                                        $("body").attr("class", n);--}}
+{{--                                    })--}}
 
-                                    $('#set_as_superadmin input').click(function () {
-                                        var n = $(this).val();
-                                        if (n == '1') {
-                                            $('#privileges_configuration').hide();
-                                        } else {
-                                            $('#privileges_configuration').show();
-                                        }
-                                    })
+{{--                                    $('#set_as_superadmin input').click(function () {--}}
+{{--                                        var n = $(this).val();--}}
+{{--                                        if (n == '1') {--}}
+{{--                                            $('#privileges_configuration').hide();--}}
+{{--                                        } else {--}}
+{{--                                            $('#privileges_configuration').show();--}}
+{{--                                        }--}}
+{{--                                    })--}}
 
-                                    $('#set_as_superadmin input:checked').trigger('click');
-                                })
-                            </script>
-                        @endpush
-                    </div>
+{{--                                    $('#set_as_superadmin input:checked').trigger('click');--}}
+{{--                                })--}}
+{{--                            </script>--}}
+{{--                        @endpush--}}
+{{--                    </div>--}}
 
                     <div id='privileges_configuration' class='form-group'>
                         <label>{{cbLang('privileges_configuration')}}</label>
@@ -127,11 +127,11 @@
                                 })
                             </script>
                         @endpush
-                        <table class='table table-striped table-hover table-bordered'>
+                        <table class='table'>
                             <thead>
                             <tr class='active'>
-                                <th width='3%'>{{cbLang('privileges_module_list_no')}}</th>
-                                <th width='60%'>{{cbLang('privileges_module_list_mod_names')}}</th>
+                                <th >{{cbLang('privileges_module_list_no')}}</th>
+                                <th>{{cbLang('privileges_module_list_mod_names')}}</th>
                                 <th>&nbsp;</th>
                                 <th>{{cbLang('privileges_module_list_view')}}</th>
                                 <th>{{cbLang('privileges_module_list_create')}}</th>
@@ -143,11 +143,37 @@
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
                                 <th>&nbsp;</th>
-                                <td align="center"><input title='Check all vertical' type='checkbox' id='is_visible'/></td>
-                                <td align="center"><input title='Check all vertical' type='checkbox' id='is_create'/></td>
-                                <td align="center"><input title='Check all vertical' type='checkbox' id='is_read'/></td>
-                                <td align="center"><input title='Check all vertical' type='checkbox' id='is_edit'/></td>
-                                <td align="center"><input title='Check all vertical' type='checkbox' id='is_delete'/></td>
+                                <td align="center">
+                                    <label class="custom-switch">
+                                        <input class="custom-switch-input" type='checkbox' id='is_visible'>
+                                        <span class="custom-switch-indicator"></span>
+                                    </label>
+                                </td>
+
+                                <td align="center">
+                                    <label class="custom-switch">
+                                        <input class="custom-switch-input" type='checkbox' id='is_create'>
+                                        <span class="custom-switch-indicator"></span>
+                                    </label>
+                                </td>
+                                <td align="center">
+                                    <label class="custom-switch">
+                                        <input class="custom-switch-input" type='checkbox' id='is_read'>
+                                        <span class="custom-switch-indicator"></span>
+                                    </label>
+                                </td>
+                                <td align="center">
+                                    <label class="custom-switch">
+                                        <input class="custom-switch-input" type='checkbox' id='is_edit'>
+                                        <span class="custom-switch-indicator"></span>
+                                    </label>
+                                </td>
+                                <td align="center">
+                                    <label class="custom-switch">
+                                        <input class="custom-switch-input" type='checkbox' id='is_delete'>
+                                        <span class="custom-switch-indicator"></span>
+                                    </label>
+                                </td>
                             </tr>
                             </thead>
                             <tbody>
@@ -159,19 +185,46 @@
                                 <tr>
                                     <td><?php echo $no++;?></td>
                                     <td>{{$modul->name}}</td>
-                                    <td class='info' align="center"><input type='checkbox' title='Check All Horizontal'
-                                                                           <?=($roles->is_create && $roles->is_read && $roles->is_edit && $roles->is_delete) ? "checked" : ""?> class='select_horizontal'/>
+                                    <td class='info' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' title='Check All Horizontal' <?=($roles->is_create && $roles->is_read && $roles->is_edit && $roles->is_delete) ? "checked" : ""?> class='select_horizontal custom-switch-input'/>
+                                            <span class="custom-switch-indicator"></span>
+                                        </label>
                                     </td>
-                                    <td class='active' align="center"><input type='checkbox' class='is_visible' name='privileges[<?=$modul->id?>][is_visible]'
-                                                                             <?=@$roles->is_visible ? "checked" : ""?> value='1'/></td>
-                                    <td class='warning' align="center"><input type='checkbox' class='is_create' name='privileges[<?=$modul->id?>][is_create]'
-                                                                              <?=@$roles->is_create ? "checked" : ""?> value='1'/></td>
-                                    <td class='info' align="center"><input type='checkbox' class='is_read' name='privileges[<?=$modul->id?>][is_read]'
-                                                                           <?=@$roles->is_read ? "checked" : ""?> value='1'/></td>
-                                    <td class='success' align="center"><input type='checkbox' class='is_edit' name='privileges[<?=$modul->id?>][is_edit]'
-                                                                              <?=@$roles->is_edit ? "checked" : ""?> value='1'/></td>
-                                    <td class='danger' align="center"><input type='checkbox' class='is_delete' name='privileges[<?=$modul->id?>][is_delete]'
-                                                                             <?=@$roles->is_delete ? "checked" : ""?> value='1'/></td>
+                                    <td class='active' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' class='is_visible custom-switch-input' name='privileges[<?=$modul->id?>][is_visible]' <?=@$roles->is_visible ? "checked" : ""?> value='1'/>
+                                            <span class="custom-switch-indicator"></span>
+                                        </label>
+                                    </td>
+                                    <td class='warning' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' class='is_create custom-switch-input' name='privileges[<?=$modul->id?>][is_create]' <?=@$roles->is_create ? "checked" : ""?> value='1'/>
+                                            <span class="custom-switch-indicator"></span>
+
+                                        </label>
+                                    </td>
+                                    <td class='info' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' class='is_read custom-switch-input' name='privileges[<?=$modul->id?>][is_read]' <?=@$roles->is_read ? "checked" : ""?> value='1'/>
+                                            <span class="custom-switch-indicator"></span>
+
+                                        </label>
+                                    </td>
+                                    <td class='success' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' class='is_edit custom-switch-input' name='privileges[<?=$modul->id?>][is_edit]' <?=@$roles->is_edit ? "checked" : ""?> value='1'/>
+                                            <span class="custom-switch-indicator"></span>
+
+                                        </label>
+                                    </td>
+                                    <td class='danger' align="center">
+                                        <label class="custom-switch">
+                                            <input type='checkbox' class='is_delete custom-switch-input' name='privileges[<?=$modul->id?>][is_delete]'<?=@$roles->is_delete ? "checked" : ""?> value='1'/>
+                                            <span class="custom-switch-indicator"></span>
+
+                                        </label>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

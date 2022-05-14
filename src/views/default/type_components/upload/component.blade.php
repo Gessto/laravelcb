@@ -18,7 +18,7 @@
             <?php else:?>
             <p><a href='{{$url}}'>{{cbLang("button_download_file")}}</a></p>
             <?php endif;
-            echo "<input type='hidden' name='_$name' value='$value'/>";
+            echo "<input  type='hidden' name='_$name' value='$value'/>";
             else:
                 echo "<p class='text-danger'><i class='fa fa-exclamation-triangle'></i> ".cbLang("file_broken")."</p>";
             endif;

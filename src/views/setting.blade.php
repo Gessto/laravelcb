@@ -85,7 +85,7 @@
                         <div class='form-group'>
                             <label class='label-setting' title="{{$s->name}}">{{$s->label}}
                                 <a style="visibility:hidden" href='{{CRUDBooster::mainpath("edit/$s->id")}}' title='Edit This Meta Setting'
-                                   class='btn btn-box-tool'><i class='fa fa-pencil'></i></a>
+                                   class='btn btn-box-tool'><i class='fas fa-edit'></i></a>
                                 <a style="visibility:hidden" href='javascript:;' title='Delete this Setting' class='btn btn-box-tool'
                                    onClick='swal({   title: "Are you sure?",   text: "You will not be able to recover {{$s->label}} and may be can cause some errors on your system !",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",   closeOnConfirm: false }, function(){  location.href="{{CRUDBooster::mainpath("delete/$s->id")}}" });'
                                 ><i class='fa fa-trash'></i></a>

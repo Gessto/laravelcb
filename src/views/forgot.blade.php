@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
+
+<html lang="en"><head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>{{cbLang("page_title_forgot")}} : {{$appname}}</title>
     <meta name='generator' content='CRUDBooster.com'/>
     <meta name='robots' content='noindex,nofollow'/>
     <link rel="shortcut icon"
           href="{{ CRUDBooster::getSetting('favicon')?asset(CRUDBooster::getSetting('favicon')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
-    <link href="{{asset('vendor/crudbooster/assets/adminlte/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Theme style -->
-    <link href="{{asset('vendor/crudbooster/assets/adminlte/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css"/>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-    <link rel='stylesheet' href='{{asset("vendor/crudbooster/assets/css/main.css")}}'/>
-    <link rel='stylesheet' href='{{asset("vendor/crudbooster/assets/css/main.css")}}'/>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+
+    <!-- CSS Libraries -->
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
+    <!-- Start GA -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <style type="text/css">
-        .login-page, .register-page {
+        body {
             background: {{ CRUDBooster::getSetting("login_background_color")?:'#dddddd'}} url('{{ CRUDBooster::getSetting("login_background_image")?asset(CRUDBooster::getSetting("login_background_image")):asset('vendor/crudbooster/assets/bg_blur3.jpg') }}');
             color: {{ CRUDBooster::getSetting("login_font_color")?:'#ffffff' }}  !important;
             background-repeat: no-repeat;
@@ -38,50 +35,68 @@
         }
     </style>
 </head>
-<body class="login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="{{url('/')}}">
-            <img title='{!!($appname == 'CRUDBooster')?"<b>CRUD</b>Booster":$appname!!}'
-                 src='{{ CRUDBooster::getSetting("logo")?asset(CRUDBooster::getSetting('logo')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}'
-                 style='max-width: 100%;max-height:170px'/>
-        </a>
-    </div><!-- /.login-logo -->
-    <div class="login-box-body">
 
-        @if ( Session::get('message') != '' )
-            <div class='alert alert-warning'>
-                {{ Session::get('message') }}
-            </div>
-        @endif
-
-        <p class="login-box-msg">{{cbLang("forgot_message")}}</p>
-        <form action="{{ route('postForgot') }}" method="post">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            <div class="form-group has-feedback">
-                <input type="email" class="form-control" name='email' required placeholder="Email Address"/>
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            </div>
+<body>
+<div id="app">
+    <section class="section">
+        <div class="container mt-5">
             <div class="row">
-                <div class="col-xs-8">
-                    {{cbLang("forgot_text_try_again")}} <a href='{{route("getLogin")}}'>{{cbLang("click_here")}}</a>
-                </div><!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">{{cbLang("button_submit")}}</button>
-                </div><!-- /.col -->
+                <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                    <div class="login-brand">
+                        <img  title='{!!($appname == 'CRUDBooster')?"<b>CRUD</b>Booster":$appname!!}'
+                              src='{{ CRUDBooster::getSetting("logo")?asset(CRUDBooster::getSetting('logo')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}' style="width: 100%;">
+                    </div>
+
+                    <div class="card card-primary">
+                        <div class="card-header"><h4 style="color:#34395e;">Forgot Password</h4></div>
+
+                        <div class="card-body">
+                            <p class="text-muted">We will send a link to reset your password</p>
+                            <form action="{{ route('postForgot') }}" method="post">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input itype="email" class="form-control" name='email' required placeholder="Email Address">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                        {{cbLang("button_submit")}}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    @if ( Session::get('message') != '' )
+                        <div class='alert alert-warning'>
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
+                    <div class="simple-footer">
+                        Copyright © Webillium CMS
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
+    </section>
+</div>
 
-        <br/>
-        <!--a href="#">I forgot my password</a-->
+<!-- General JS Scripts -->
+<script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/tooltip.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
+<script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
 
-    </div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
+<!-- JS Libraies -->
 
-<!-- jQuery 2.2.3 -->
-<script src="{{asset('vendor/crudbooster/assets/adminlte/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
-<!-- Bootstrap 3.4.1 JS -->
-<script src="{{asset('vendor/crudbooster/assets/adminlte/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<!-- Page Specific JS File -->
 
-</body>
-</html>
+<!-- Template JS File -->
+<script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
+<script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+
+</body></html>

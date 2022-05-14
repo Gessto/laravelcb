@@ -1,17 +1,43 @@
 @extends("crudbooster::admin_template")
 @section("content")
 
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="{{Route('ModulsControllerGetStep1')."/".$id}}"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
-        <li role="presentation"><a href="{{Route('ModulsControllerGetStep2')."/".$id}}"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
-        <li role="presentation"><a href="{{Route('ModulsControllerGetStep3')."/".$id}}"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
-        <li role="presentation" class="active"><a href="{{Route('ModulsControllerGetStep4')."/".$id}}"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
-    </ul>
-
-    <div class="box box-default">
-        <div class="box-header">
-            <h1 class="box-title">Configuration</h1>
+    @push('bottom')
+        <script>
+            $('.section-header').hide()
+            $('.section-header-primary').show()
+        </script>
+    @endpush
+    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
+        <div class="card mb-0">
+            <div class="card-body">
+                <ul class="nav nav-pills">
+                    @if($id)
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" href="{{Route('ModulsControllerGetStep1')."/".$id}}"> Step 1 - Module Information</a>
+                        </li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" href="{{Route('ModulsControllerGetStep2')."/".$id}}">Step 2 - Table Display</a></li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link" href="{{Route('ModulsControllerGetStep3')."/".$id}}">Step 3 - Form Display</a></li>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link active" href="{{Route('ModulsControllerGetStep4')."/".$id}}">Step 4 - Configuration</a></li>
+                    @else
+                        <li role="presentation">
+                            <a class="nav-link active" href="#"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
+                        <li role="presentation" class="nav-link">
+                            <a class="nav-link" href="#"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
+                        <li role="presentation" class="nav-link">
+                            <a class="nav-link" href="#"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
+                        <li role="presentation" class="nav-link">
+                            <a class="nav-link" href="#"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
+                    @endif
+                </ul>
+            </div>
         </div>
+    </div>
+
+    <div class="box box-default" style="padding-top: 25px;">
+
         <form method='post' action='{{Route('ModulsControllerPostStepFinish')}}'>
             {{csrf_field()}}
             <input type="hidden" name="id" value='{{$id}}'>
@@ -233,7 +259,7 @@
 
             </div>
             <div class="box-footer">
-                <div align="right">
+                <div class="card-footer text-right">
                     <button type="button" onclick="location.href='{{CRUDBooster::mainpath('step3').'/'.$id}}'" class="btn btn-default">&laquo; Back</button>
                     <input type="submit" name="submit" class='btn btn-primary' value='Save Module'>
                 </div>

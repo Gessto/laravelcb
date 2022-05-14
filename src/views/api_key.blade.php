@@ -2,11 +2,17 @@
 
 @section('content')
 
-    <ul class="nav nav-tabs">
-        <li><a href="{{ CRUDBooster::mainpath() }}"><i class='fa fa-file'></i> API Documentation</a></li>
-        <li class="active"><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Secret Key</a></li>
-        <li><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator</a></li>
-    </ul>
+    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
+        <div class="card mb-0">
+            <div class="card-body">
+                <ul class="nav nav-pills">
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('documentation') }}"><i class='fa fa-file'></i> API Documentation </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Screet Key </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class='box'>
 

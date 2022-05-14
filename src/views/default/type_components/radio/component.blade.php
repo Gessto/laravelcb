@@ -78,7 +78,7 @@
                 echo "
 											<div data-val='$val' class='input-radio-wrapper $disabled'>
 											  <label class='radio-inline'>
-											    <input type='radio' $disabled $checked name='".$name."' value='".$d->id."'> ".$val." 								    
+											    <input type='radio' $disabled $checked name='".$name."' value='".$d->id."'> ".$val."
 											  </label>
 											</div>";
             }
@@ -91,7 +91,7 @@
                     $checked = ($value == $q->value) ? "checked" : "";
                     echo "<div data-val='$val' class=' $disabled'>
 																<label class='radio-inline'>
-																	<input type='radio' $disabled $checked name='".$name."' value='$q->value'> ".$q->label."								    
+																	<input type='radio' $disabled $checked name='".$name."' value='$q->value'> ".$q->label."
 																</label>
 																</div>";
                 }

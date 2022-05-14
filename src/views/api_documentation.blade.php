@@ -2,11 +2,18 @@
 
 @section('content')
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="{{ CRUDBooster::mainpath() }}"><i class='fa fa-file'></i> API Documentation</a></li>
-        <li><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Secret Key</a></li>
-        <li><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator</a></li>
-    </ul>
+    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
+        <div class="card mb-0">
+            <div class="card-body">
+                <ul class="nav nav-pills">
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('documentation') }}"><i class='fa fa-file'></i> API Documentation </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Screet Key </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 
     <div class='box'>
 
@@ -69,8 +76,8 @@
                 <tr class='info'>
                     <th width='2%'>No</th>
                     <th>API Name
-                        <span class='pull-right'>
-                            <a class="btn btn-xs btn-primary" target="_blank" href="{{ url('api-documentation') }}"><i class="fa fa-globe"></i> Public Documentation</a>
+                        <span class='pull-right' style="float: right;">
+                            <a  class="btn btn-xs btn-primary" target="_blank" href="{{ url('api-documentation') }}"><i class="fa fa-globe"></i> Public Documentation</a>
                       <a class='btn btn-xs btn-warning' target="_blank" href='{{CRUDBooster::mainpath("download-postman")}}'>Export For POSTMAN <sup>Beta</sup></a>
                     </span>
                     </th>
@@ -177,11 +184,10 @@
                         <td><?= ++$no;?></td>
                         <td>
                             <a href='javascript:void(0)' title='API {{$ac->nama}}' style='color:#009fe3' class='link_name_api'><?=$api->nama;?></a> &nbsp;
-                            <sup>
-                                <a title='Delete this API' onclick="deleteApi({{$api->id}})" href="javascript:void(0)"><i class='fa fa-trash'></i></a>
-                                &nbsp; <a title='Edit This API' href="{{url(config('crudbooster.ADMIN_PATH').'/api_generator/edit-api').'/'.$api->id}}"><i
-                                            class='fa fa-pencil'></i></a>
-                            </sup>
+                            <div style="float: right;">
+                                <a class="btn btn-xs btn-success btn-edit" title="Edit Data" href="{{url(config('crudbooster.ADMIN_PATH').'/api_generator/edit-api').'/'.$api->id}}"><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-xs btn-warning btn-delete" title="Delete" href="javascript:void(0)" onclick="deleteApi({{$api->id}})"><i class="fa fa-trash"></i></a>
+                            </div>
                             <div class='detail_api' style='display:none'>
                                 <table class='table table-bordered'>
                                     <tr>

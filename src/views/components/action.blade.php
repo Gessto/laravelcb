@@ -17,7 +17,7 @@
         $a['confirmation_closeOnConfirm'] = empty($a['confirmation_closeOnConfirm']) ? 'true' : 'false';
 
         $confirm_box = '
-        swal({   
+        swal({
             title: "'.$a['confirmation_title'].'",
             text: "'.$a['confirmation_text'].'",
             type: "'.$a['confirmation_type'].'",
@@ -25,8 +25,8 @@
             confirmButtonColor: "'.$a['confirmation_confirmButtonColor'].'",
             confirmButtonText: "'.$a['confirmation_confirmButtonText'].'",
             cancelButtonText: "'.$a['confirmation_cancelButtonText'].'",
-            closeOnConfirm: '.$a['confirmation_closeOnConfirm'].', }, 
-            function(){  location.href="'.$a['url'].'"});        
+            closeOnConfirm: '.$a['confirmation_closeOnConfirm'].', },
+            function(){  location.href="'.$a['url'].'"});
 
         ';
     }
@@ -89,7 +89,7 @@
     @if(CRUDBooster::isUpdate() && $button_edit)
         <a class='btn btn-xs btn-success btn-edit' title='{{cbLang("action_edit_data")}}'
            href='{{CRUDBooster::mainpath("edit/".$row->$pk)."?return_url=".urlencode(Request::fullUrl())."&parent_id=".g("parent_id")."&parent_field=".$parent_field }}'><i
-                    class='fa fa-pencil'></i> {{cbLang("action_edit_data")}}</a>
+                    class='fas fa-edit'></i> {{cbLang("action_edit_data")}}</a>
     @endif
 
     @if(CRUDBooster::isDelete() && $button_delete)
@@ -144,7 +144,7 @@
             @if(CRUDBooster::isUpdate() && $button_edit)
                 <li><a class='btn-edit' title='{{cbLang("action_edit_data")}}'
                        href='{{CRUDBooster::mainpath("edit/".$row->$pk)."?return_url=".urlencode(Request::fullUrl())."&parent_id=".g("parent_id")."&parent_field=".$parent_field}}'><i
-                                class='fa fa-pencil'></i> {{cbLang("action_edit_data")}}</a></li>
+                                class='fas fa-edit'></i> {{cbLang("action_edit_data")}}</a></li>
             @endif
 
             @if(CRUDBooster::isDelete() && $button_delete)
@@ -165,7 +165,7 @@
     @if(CRUDBooster::isUpdate() && $button_edit)
         <a class='btn btn-xs btn-success btn-edit' title='{{cbLang("action_edit_data")}}'
            href='{{CRUDBooster::mainpath("edit/".$row->$pk)."?return_url=".urlencode(Request::fullUrl())."&parent_id=".g("parent_id")."&parent_field=".$parent_field}}'><i
-                    class='fa fa-pencil'></i></a>
+                    class='fas fa-edit'></i></a>
     @endif
 
     @if(CRUDBooster::isDelete() && $button_delete)

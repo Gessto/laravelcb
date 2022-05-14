@@ -3,22 +3,27 @@
 @section('content')
 
     @push('head')
-        <link href="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+        <link href="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.css" rel="stylesheet">
     @endpush
     @push('bottom')
-        <script src="//cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+        <script src="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.wysiwyg').summernote();
             })
         </script>
     @endpush
-
-    <ul class="nav nav-tabs">
-        <li><a href="{{ CRUDBooster::mainpath() }}"><i class='fa fa-file'></i> API Documentation</a></li>
-        <li><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Secret Key</a></li>
-        <li class='active'><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator</a></li>
-    </ul>
+    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
+        <div class="card mb-0">
+            <div class="card-body">
+                <ul class="nav nav-pills">
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('documentation') }}"><i class='fa fa-file'></i> API Documentation </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('screet-key') }}"><i class='fa fa-key'></i> API Screet Key </a></li>
+                    <li class="btn btn-outline-primary nav-item"><a href="{{ CRUDBooster::mainpath('generator') }}"><i class='fa fa-cog'></i> API Generator </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class='box'>
 
@@ -614,11 +619,15 @@
 
                 <div class='row'>
                     <div class='col-sm-8'>
-                        <div class='form-group'>
+                        <div class="form-group">
                             <label>API Slug</label>
-                            <div class='input-group'>
-                                <span class="input-group-addon" id="basic-addon1" style="background:#eeeeee">{{url("api")}}/</span>
-                                <input type='text' class='form-control' value='{{$row->permalink}}' required name='permalink' id='input-permalink'/>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        {{url("api")}}/
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control phone-number" value='{{$row->permalink}}' required name='permalink' id='input-permalink'>
                             </div>
                         </div>
                     </div>
@@ -637,16 +646,22 @@
                     </div>
                     <div class='col-sm-2'>
                         <div class='form-group'>
-                            <label>Method Type</label>
-                            <br/>
-                            <label class='radio-inline'>
-                                <input type='radio' required class='method_type' {{ ($row->method_type == 'get')?"checked":"" }} name='method_type'
-                                       value='get'/> GET
-                            </label>
-                            <label class='radio-inline'>
-                                <input type='radio' class='method_type' {{ ($row->method_type == 'post')?"checked":"" }} name='method_type' value='post'/> POST
-                            </label>
+                            <label style="text-align: center;">Method Type</label>
+                            <div class="custom-switches-stacked mt-2">
+                                <div class="row">
+                                    <label class="custom-switch">
+                                        <input type="radio" required {{ ($row->method_type == 'get')?"checked":"" }} class="method_type custom-switch-input" name='method_type' value='get'>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">GET</span>
+                                    </label>
+                                    <label class="custom-switch">
+                                        <input type="radio" class="custom-switch-input method_type" {{ ($row->method_type == 'post')?"checked":"" }} name='method_type' value='post'>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">POST</span>
+                                    </label>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -655,7 +670,7 @@
                 <div class='form-group'>
                     <div class="clearfix">
                         <label><i class='fa fa-cog'></i> Parameters</label>
-                        <a class='pull-right btn btn-xs btn-primary' href='javascript:void(0)' onclick="load_parameters()"><i class='fa fa-refresh'></i>
+                        <a style="float: right;" class='pull-right btn btn-xs btn-primary' href='javascript:void(0)' onclick="load_parameters()"><i class='fa fa-refresh'></i>
                             Reset</a>
                     </div>
 
@@ -737,11 +752,11 @@
                     </div>
                 </div>
 
-                <div id="response-wrapper" style="display: {{ isset($row)&&in_array($row->aksi,['save_edit','delete'])?"none":"block" }}">
+                <div id="response-wrapper" style="margin-top:10px;display: {{ isset($row)&&in_array($row->aksi,['save_edit','delete'])?"none":"block" }}">
                     <div class='form-group'>
                         <div class='clearfix'>
                             <label><i class='fa fa-cog'></i> Response</label>
-                            <a class='pull-right btn btn-xs btn-primary' href='javascript:void(0)' onclick='load_response()'><i class='fa fa-refresh'></i> Reset</a>
+                            <a style="float: right;" class='pull-right btn btn-xs btn-primary' href='javascript:void(0)' onclick='load_response()'><i class='fa fa-refresh'></i> Reset</a>
                         </div>
                         <div id='response'>
                             <table id='table-response' class='table table-striped table-bordered'>
