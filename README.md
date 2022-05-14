@@ -5,7 +5,18 @@
 Webillium CMS is a Laravel CRUD Generator. With a new concept of scaffolding, very easy for the beginner and professional. It's easy to use, easy to custom, and very flexible. Don't limit your mind, Webillium CMS gives us a true flexibility to develop an app. You can utilize its built in CRUD Generator or even you just need for your master data only.
 
 ## Let's Get Started
-### [Installation](/docs/en/installation.md)
+## Instalation
+```
+"require": {
+"crocodicstudio/crudbooster": "v5.6.x-dev"
+},
+"repositories": [
+{
+"url": "https://github.com/Gessto/laravelcb.git",
+"type": "git"
+}
+]
+```
 ### [Documentation](/docs/en/index.md)
 
 
@@ -34,18 +45,7 @@ To contribute directly to the source code:
 - Contributions will only be accepted through a Pull Request.
 - Your contribution can not contain execution errors.
 
-## Instalation
-```
-"require": {
-"crocodicstudio/crudbooster": "v5.6.x-dev"
-},
-"repositories": [
-{
-"url": "https://github.com/Gessto/laravelcb.git",
-"type": "git"
-}
-]
-```
+
 ## Using GitHub Issues Page
 
 Do you have any doubt? Are you having some difficulty? Did you find a translation error, a bug, or any problem? Before posting, search on [CRUDBoster Issues](https://github.com/crocodic-studio/crudbooster/issues)  and make sure if anyone has not reported the same or similar problem.
