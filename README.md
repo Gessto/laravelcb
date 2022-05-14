@@ -20,7 +20,7 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
 ### [Documentation](/docs/en/index.md)
 
 ## Credits
-6.Thanks To All Funders
+6. Thanks To All Funders
 
 ## License 
 Webillium CMS is under [MIT License](https://opensource.org/licenses/MIT)
