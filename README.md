@@ -23,10 +23,9 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
 1. Laravel Export HTML to Excel by [Maatwebsite](https://github.com/Maatwebsite/Laravel-Excel)
 2. Laravel DOM PDF by [Barryvdh](https://github.com/barryvdh/laravel-dompdf)
 3. Laravel Widgetize [ImanGhafoori](https://github.com/imanghafoori1/laravel-widgetize)
-4. Admin Theme by [AdminLTE Almsaeed Studio](https://almsaeedstudio.com/preview)
-5. Laravel Framework by [Taylor Otwell](https://github.com/laravel/laravel)
-6. Thanks To All [Developers](https://github.com/crocodic-studio/crudbooster/graphs/contributors)
-7. Thanks To All Funders
+4.Laravel Framework by [Taylor Otwell](https://github.com/laravel/laravel)
+5.Thanks To All [Developers](https://github.com/crocodic-studio/crudbooster/graphs/contributors)
+6.Thanks To All Funders
 
 ## License 
 Webillium CMS is under [MIT License](https://opensource.org/licenses/MIT)
