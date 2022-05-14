@@ -1288,7 +1288,6 @@ class CRUDBooster
 
     public static function generateAPI($controller_name, $table_name, $permalink, $method_type = 'post')
     {
-	Artisan::call('krlove:generate:model '.strtoupper($table).' --table-name='.$table);
         $php = '
 		<?php namespace App\Http\Controllers;
 
@@ -1296,7 +1295,7 @@ class CRUDBooster
 		use Request;
 		use DB;
 		use CRUDBooster;
-		use App\\'.strtoupper($table).';
+
 		class Api'.$controller_name.'Controller extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
@@ -1330,7 +1329,7 @@ class CRUDBooster
 
         $php = trim($php);
         $path = base_path("app/Http/Controllers/");
-        file_put_contents($path.'Api/'.'Api'.$controller_name.'Controller.php', $php);
+        file_put_contents($path.'Api'.$controller_name.'Controller.php', $php);
     }
 
     public static function generateController($table, $name = null)
@@ -1377,8 +1376,6 @@ class CRUDBooster
         $button_bulk_action = 'TRUE';
         $global_privilege = 'FALSE';
 
-	Artisan::call('krlove:generate:model '.strtoupper($table).' --table-name='.$table);
-
         $php = '
 <?php namespace App\Http\Controllers;
 
@@ -1386,7 +1383,6 @@ class CRUDBooster
 	use Request;
 	use DB;
 	use CRUDBooster;
-	use App\\'.strtoupper($table).';
 
 	class Admin'.$controllername.' extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -1880,7 +1876,7 @@ class CRUDBooster
         $php = trim($php);
 
         //create file controller
-        file_put_contents($path.'Modules/'.'Admin'.$controllername.'.php', $php);
+        file_put_contents($path.'Admin'.$controllername.'.php', $php);
 
         return 'Admin'.$controllername;
     }
