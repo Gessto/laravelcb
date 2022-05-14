@@ -34,6 +34,18 @@ To contribute directly to the source code:
 - Contributions will only be accepted through a Pull Request.
 - Your contribution can not contain execution errors.
 
+## Instalation
+```
+"require": {
+"crocodicstudio/crudbooster": "v5.6.x-dev"
+},
+"repositories": [
+{
+"url": "https://github.com/Gessto/laravelcb.git",
+"type": "git"
+}
+]
+```
 ## Using GitHub Issues Page
 
 Do you have any doubt? Are you having some difficulty? Did you find a translation error, a bug, or any problem? Before posting, search on [CRUDBoster Issues](https://github.com/crocodic-studio/crudbooster/issues)  and make sure if anyone has not reported the same or similar problem.
