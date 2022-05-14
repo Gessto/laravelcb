@@ -2,7 +2,7 @@
 > Laravel CRUD Generator, Make a Web Application Just In Minutes, Even With Less Code and fewer Steps !
 
 # About Webillium CMS
-Webillium CMS is a Laravel CRUD Generator. With a new concept of scaffolding, very easy for the beginner and professional. It's easy to use, easy to custom, and very flexible. Don't limit your mind, Webillium CMS gives us a true flexibility to develop an app. You can utilize its built in CRUD Generator or even you just need for your master data only.
+Webillium CMS is based on Crudbooster with Stisla admin templte.
 
 ## Let's Get Started
 ## Instalation
