@@ -83,6 +83,12 @@
         *
         *
         **/
+        .table > a{
+            color: {{$mainColor}} !important;
+        }
+        .button_action{
+            color: #fff !important;
+        }
         .btn-success {
             box-shadow: 0 2px 6px #acb5f6;
             background-color:{{$mainColor}}!important;
