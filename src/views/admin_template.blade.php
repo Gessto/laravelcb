@@ -11,8 +11,7 @@
     <link rel="shortcut icon"
           href="{{ CRUDBooster::getSetting('favicon')?asset(CRUDBooster::getSetting('favicon')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/bootstrap.min.css') }}">
 
     <!-- CSS Libraries -->
 
@@ -321,6 +320,7 @@
     <script src="{{ asset('vendor/crudbooster/assets/stisla/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/crudbooster/assets/stisla/gijgo.min.js') }}" type="text/javascript"></script>
     <link href="{{ asset('vendor/crudbooster/assets/stisla/gijgo.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
 </head>
 
 <body class="{{config('crudbooster.ADMIN_LAYOUT')}}">
