@@ -44,18 +44,6 @@
 
             @if(CRUDBooster::isSuperadmin())
                 <li class="menu-header"> {{ cbLang('SUPERADMIN') }}</li>
-
-                <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown">
-                        <i class="fas fa-grip-horizontal"></i>
-                        <span>{{ cbLang('Privileges_Roles') }}</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="nav-link" href="{{Route("PrivilegesControllerGetAdd")}}">{{ cbLang('Add_New_Privilege') }}</a></li>
-                        <li><a class="nav-link"
-                               href="{{Route("PrivilegesControllerGetIndex")}}">{{ cbLang('List_Privilege') }}</a></li>
-                    </ul>
-                </li>
-
                 <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
                         <i class="far fa-user"></i>
@@ -67,6 +55,18 @@
                                href="{{Route("AdminCmsUsersControllerGetIndex")}}">{{ cbLang('List_users') }}</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link has-dropdown">
+                        <i class="fas fa-grip-horizontal"></i>
+                        <span>{{ cbLang('Privileges_Roles') }}</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="nav-link" href="{{Route("PrivilegesControllerGetAdd")}}">{{ cbLang('Add_New_Privilege') }}</a></li>
+                        <li><a class="nav-link"
+                               href="{{Route("PrivilegesControllerGetIndex")}}">{{ cbLang('List_Privilege') }}</a></li>
+                    </ul>
+                </li>
+
+
                 <li class="{{ (Request::is(config('crudbooster.ADMIN_PATH').'/menu_management*')) ? 'active' : '' }}">
                     <a href='{{Route("MenusControllerGetIndex")}}'>
                         <i class="fas fa-bars"></i>
