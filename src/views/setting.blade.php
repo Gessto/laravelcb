@@ -91,6 +91,21 @@
                                 ><i class='fa fa-trash'></i></a>
                             </label>
                             <?php
+
+                            $mainColor = '#6777ef';
+
+                            if(Session::get('theme_color') == 'skin-blue'){
+                                $mainColor = '#48cae4';
+                            }else if(Session::get('theme_color') == 'skin-yellow'){
+                                $mainColor = '#fcbf49';
+                            }else if(Session::get('theme_color') == 'skin-green'){
+                                $mainColor = '#80ed99';
+                            }else if(Session::get('theme_color') == 'skin-red'){
+                                $mainColor = '#d62828';
+                            }else if(Session::get('theme_color') == 'skin-yellow'){
+                                $mainColor = '#003049';
+                            }
+
                             switch ($s->content_input_type) {
                                 case 'text':
                                     echo "<input type='text' class='form-control' name='$s->name' value='$value'/>";
@@ -110,7 +125,7 @@
                                 case 'upload':
                                 case 'upload_image':
                                     if ($value) {
-                                        echo "<p><a href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
+                                        echo "<p><a style='color:".$mainColor.";' href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
                                         echo "<input type='hidden' name='$s->name' value='$value'/>";
                                         echo "<div class='pull-right' style='float:right;margin-top:-25px;'><a class='btn btn-danger btn-xs' style='color:#fff;' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
                                     } else {
@@ -120,7 +135,7 @@
                                     break;
                                 case 'upload_file':
                                     if ($value) {
-                                        echo "<p><a href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
+                                        echo "<p><a style='color:".$mainColor.";' href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
                                         echo "<input type='hidden' name='$s->name' value='$value'/>";
                                         echo "<div class='pull-right' style='float:right; margin-top:-25px;'><a class='btn btn-danger btn-xs' style='color:#fff;' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
                                     } else {
