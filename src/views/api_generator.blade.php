@@ -3,10 +3,10 @@
 @section('content')
 
     @push('head')
-        <link href="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.css" rel="stylesheet">
+        <link href="{{ asset('vendor/crudbooster/assets/stisla/summernote-bs4.css') }}" rel="stylesheet">
     @endpush
     @push('bottom')
-        <script src="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.js"></script>
+        <script src="{{ asset('vendor/crudbooster/assets/stisla/summernote-bs4.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.wysiwyg').summernote();

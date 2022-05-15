@@ -1,12 +1,12 @@
 <div class='form-group form-datepicker {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}' id='form-group-{{$name}}'
      style="{{@$form['style']}}">
-    <label class='control-label col-sm-2'>{{$form['label']}}
+    <label class='control-label'>{{$form['label']}}
         @if($required)
             <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
+
 
         <?php
         $datamodal_field = explode(',', $form['datamodal_columns'])[0];
@@ -28,7 +28,6 @@
 
         <div class="text-danger">{!! $errors->first($name)?"<i class='fa fa-info-circle'></i> ".$errors->first($name):"" !!}</div>
         <p class='help-block'>{{ @$form['help'] }}</p>
-    </div>
 </div>
 
 @push('bottom')
@@ -64,8 +63,10 @@
         <div class="modal-dialog {{ $form['datamodal_size']=='large'?'modal-lg':'' }} " role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><i class='fa fa-search'></i> {{cbLang('datamodal_browse_data')}} | {{$form['label']}}</h4>
+                    <h5 class="modal-title">{{cbLang('datamodal_browse_data')}} | {{$form['label']}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <iframe id='iframe-modal-{{$name}}' style="border:0;height:{{$form['datamodal_height']?: "430px"}};width: 100%" src=""></iframe>

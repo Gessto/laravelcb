@@ -9,16 +9,15 @@
           href="{{ CRUDBooster::getSetting('favicon')?asset(CRUDBooster::getSetting('favicon')):asset('vendor/crudbooster/assets/logo_crudbooster.png') }}">
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/all.min.css') }}">
 
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/components.css') }}">
     <!-- Start GA -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <style type="text/css">
         body {
             background: {{ CRUDBooster::getSetting("login_background_color")?:'#dddddd'}} url('{{ CRUDBooster::getSetting("login_background_image")?asset(CRUDBooster::getSetting("login_background_image")):asset('vendor/crudbooster/assets/bg_blur3.jpg') }}');
@@ -83,20 +82,20 @@
 </div>
 
 <!-- General JS Scripts -->
-<script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/tooltip.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
-<script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/popper.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/tooltip.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/moment.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/stisla.js') }}"></script>
 
 <!-- JS Libraies -->
 
 <!-- Page Specific JS File -->
 
 <!-- Template JS File -->
-<script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
-<script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/scripts.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/custom.js') }}"></script>
 
 </body></html>

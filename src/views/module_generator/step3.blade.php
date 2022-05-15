@@ -1,55 +1,31 @@
 @extends("crudbooster::admin_template")
 @section("content")
     @push('head')
-{{--        <link rel='stylesheet' href='https://demo.getstisla.com/assets/modules/select2/dist/css/select2.min.css'>--}}
-        <style>
-            .select2-container--default .select2-selection--single {
-                border-radius: 0px !important
-            }
-
-            .select2-container .select2-selection--single {
-                height: 35px
-            }
-        </style>
+        <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/select2.min.css') }}">
     @endpush
     @push('bottom')
-{{--        <script src='<?php echo asset("vendor/crudbooster/assets/select2/dist/js/select2.full.min.js")?>'></script>--}}
+        <script src="{{ asset('vendor/crudbooster/assets/stisla/select2.full.min.js') }}"></script>
         <script>
             $(function () {
                 $('.select2').select2();
             })
-            $('.section-header').hide()
-            $('.section-header-primary').show()
+            $('.section-header').hide();
+            $('.module-generator-header').show();
         </script>
     @endpush
 
-    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
-        <div class="card mb-0">
-            <div class="card-body">
-                <ul class="nav nav-pills">
-                    @if($id)
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep1')."/".$id}}"> Step 1 - Module Information</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep2')."/".$id}}">Step 2 - Table Display</a></li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link active" href="{{Route('ModulsControllerGetStep3')."/".$id}}">Step 3 - Form Display</a></li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep4')."/".$id}}">Step 4 - Configuration</a></li>
-                    @else
-                        <li role="presentation">
-                            <a class="nav-link active" href="#"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
-                    @endif
-                </ul>
-            </div>
-        </div>
+    <div class="section-header module-generator-header">
+        <h1>
+            <!--Now you can define $page_icon alongside $page_tite for custom forms to follow CRUDBooster theme style -->
+            <i class="fa fa-database"></i> Module Generator (Form Display)
+
+            <ul class="nav nav-tabs" style="margin-top: 20px;">
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep1')."/".$id}}"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep2')."/".$id}}"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
+                <li role="presentation"><a class="btn btn-primary" href="{{Route('ModulsControllerGetStep3')."/".$id}}"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep4')."/".$id}}"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
+            </ul>
+        </h1>
     </div>
     @push('head')
         <style>
@@ -430,185 +406,150 @@
         </script>
     @endpush
 
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 999999;">
-        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Options</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>One fine body&hellip;</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn-save-option btn btn-primary">Save changes</button>
-                    </div>
-                </div><!-- /.modal-content -->
-        </div>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><i class='fa fa-cog'></i> Options</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn-save-option btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div class="box box-default" style="padding-top: 25px;">
+    <div class="box box-default">
+
         <div class="box-body">
             <form method="post" autocomplete="off" action="{{Route('ModulsControllerPostStep4')}}">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="hidden" name="id" value="{{$id}}">
 
-                <div class="card">
-                    <table class='table table-striped table-md'>
-                        <thead>
+                <table class='table-form table table-striped'>
+                    <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Validation</th>
+                        <th width="90px">Width</th>
+                        <th width="100px">Options</th>
+                        <th width="180px">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php $index = 0;?>
+                    @foreach($cb_form as $form)
                         <tr>
-                            <th>Label</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Validation</th>
-                            <th width="90px">Width</th>
-                            <th width="100px">Options</th>
-                            <th width="180px">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $index = 0;?>
-                        @foreach($cb_form as $form)
-                            <tr>
-                                <td><input type='text' value='{{$form["label"]}}' placeholder="Input field label" onclick='showColumnSuggest(this)'
-                                           onkeyup="showColumnSuggestLike(this)" class='form-control labels' name='label[]'/></td>
-                                <td><input type='text' value='{{$form["name"]}}' placeholder="Input field name" onclick='showNameSuggest(this)'
-                                           onkeyup="showNameSuggestLike(this)" class='form-control name' name='name[]'/></td>
-                                <td><input type='text' value='{{$form["type"]?:"text"}}' placeholder="Input field type" onclick='showTypeSuggest(this)'
-                                           onkeyup="showTypeSuggestLike(this)" class='form-control type' name='type[]'/></td>
-                                <td><input type='text' value='{{$form["validation"]}}' class='form-control validation' onclick="showValidationSuggest(this)"
-                                           onkeyup="showValidationSuggestLike(this)" name='validation[]' value='required' placeholder='Enter Laravel Validation'/>
-                                </td>
-                                <td>
-                                    <select class='form-control width' name='width[]' style="width:70px;">
-                                        @for($i=10;$i>=1;$i--)
-                                            <option {{ ($form['width'] == "col-sm-$i")?"selected":"" }} value='col-sm-{{$i}}'>{{$i}}</option>
-                                        @endfor
-                                    </select>
-                                </td>
-                                <td>
-                                    <a class='btn btn-primary btn-options' href='javascript:;'><i class='fa fa-cog'></i> Options</a>
-                                    <div class='option_area' style="display: none">
-                                        <?php
-
-                                        $type = $form["type"] ?: "text";
-                                        $types = base_path('vendor/crocodicstudio/crudbooster/src/views/default/type_components/'.$type.'/info.json');
-                                        $types = file_get_contents($types);
-                                        $types = json_decode($types);
-
-                                        if($types):
-                                        ?>
-
-                                        @if($types->alert)
-                                            <div class="alert alert-warning">
-                                                {!! $types->alert !!}
-                                            </div>
-                                        @endif
-
-                                        <?php
-                                        if($types->attribute->required):
-                                        foreach($types->attribute->required as $key=>$val):
-                                        @$value = $form[$key];
-                                        if(is_object($val)):
-
-                                        if($val->type && $val->type == 'radio'):
-                                        ?>
-                                        <div class="form-group">
-                                            <label>{{$key}}</label>
-                                            @foreach($val->enum as $enum)
-                                                <input type="radio" name="option[{{$index}}][{{$key}}]"
-                                                       {{ ($enum == $value)?"checked":"" }} value="{{$enum}}"> {{$enum}}
-                                            @endforeach
-
-                                        </div>
-
-                                        <?php else:?>
-
-                                        <div class="form-group">
-                                            <label>{{$key}}</label>
-                                            <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val->placeholder}}" value="{{$value}}"
-                                                   class="form-control">
-                                        </div>
-                                        <?php endif;?>
-                                        <?php else:?>
-
-                                        <div class="form-group">
-                                            <label>{{$key}}</label>
-                                            <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}" class="form-control">
-                                        </div>
-
-                                        <?php endif;?>
-                                        <?php endforeach; endif;?>
-
-
-
-                                        <?php
-                                        if($types->attribute->requiredOne):
-                                        foreach($types->attribute->requiredOne as $key=>$val):
-                                        @$value = $form[$key];
-                                        ?>
-                                        <div class="form-group">
-                                            <label>{{$key}}</label>
-                                            <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}" class="form-control">
-                                        </div>
-                                        <?php endforeach; endif;?>
-
-                                        <?php
-                                        if($types->attribute->optional):
-                                        foreach($types->attribute->optional as $key=>$val):
-                                        @$value = $form[$key];
-
-                                        ?>
-                                        <div class="form-group">
-                                            <label>{{$key}}</label>
-                                            @if(is_object($val) && property_exists($val, 'type') && $val->type == 'textarea')
-                                                <textarea type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val->placeholder}}"
-                                                          class="form-control">{{$value}}</textarea>
-                                            @else
-                                                <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}"
-                                                       class="form-control">
-                                            @endif
-                                        </div>
-                                        <?php endforeach; endif;?>
-
-
-                                        <?php endif;?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
-                                    <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
-                                    <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
-                                    <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
-                                    <hr>
-                                </td>
-                            </tr>
-                            <?php $index++;?>
-                        @endforeach
-
-                        <tr id='tr-sample' style="display: none">
-                            <td><input type='text' placeholder="Input field label" onclick='showColumnSuggest(this)' onkeyup="showColumnSuggestLike(this)"
-                                       class='form-control labels' name='label[]'/></td>
-                            <td><input type='text' placeholder="Input field name" onclick='showNameSuggest(this)' onkeyup="showNameSuggestLike(this)"
-                                       class='form-control name' name='name[]'/></td>
-                            <td><input type='text' placeholder="Input field type" onclick='showTypeSuggest(this)' onkeyup="showTypeSuggestLike(this)"
-                                       class='form-control type' name='type[]'/></td>
-                            <td><input type='text' class='form-control validation' onclick="showValidationSuggest(this)" onkeyup="showValidationSuggestLike(this)"
-                                       name='validation[]' value='required' placeholder='Enter Laravel Validation'/></td>
+                            <td><input type='text' value='{{$form["label"]}}' placeholder="Input field label" onclick='showColumnSuggest(this)'
+                                       onkeyup="showColumnSuggestLike(this)" class='form-control labels' name='label[]'/></td>
+                            <td><input type='text' value='{{$form["name"]}}' placeholder="Input field name" onclick='showNameSuggest(this)'
+                                       onkeyup="showNameSuggestLike(this)" class='form-control name' name='name[]'/></td>
+                            <td><input type='text' value='{{$form["type"]?:"text"}}' placeholder="Input field type" onclick='showTypeSuggest(this)'
+                                       onkeyup="showTypeSuggestLike(this)" class='form-control type' name='type[]'/></td>
+                            <td><input type='text' value='{{$form["validation"]}}' class='form-control validation' onclick="showValidationSuggest(this)"
+                                       onkeyup="showValidationSuggestLike(this)" name='validation[]' value='required' placeholder='Enter Laravel Validation'/>
+                            </td>
                             <td>
-                                <select class='form-control width' name='width[]'>
+                                <select class='form-control width' name='width[]' style="width: 70px;">
                                     @for($i=10;$i>=1;$i--)
-                                        <option {{ ($i==9)?"selected":"" }} value='col-sm-{{$i}}'>{{$i}}</option>
+                                        <option {{ ($form['width'] == "col-sm-$i")?"selected":"" }} value='col-sm-{{$i}}'>{{$i}}</option>
                                     @endfor
                                 </select>
                             </td>
                             <td>
-                                <a class='btn btn-primary btn-options' href='#'><i class='fa fa-cog'></i> Options</a>
+                                <a class='btn btn-primary btn-options' href='javascript:;'><i class='fa fa-cog'></i> Options</a>
                                 <div class='option_area' style="display: none">
+                                    <?php
 
+                                    $type = $form["type"] ?: "text";
+                                    $types = base_path('vendor/crocodicstudio/crudbooster/src/views/default/type_components/'.$type.'/info.json');
+                                    $types = file_get_contents($types);
+                                    $types = json_decode($types);
+
+                                    if($types):
+                                    ?>
+
+                                    @if($types->alert)
+                                        <div class="alert alert-warning">
+                                            {!! $types->alert !!}
+                                        </div>
+                                    @endif
+
+                                    <?php
+                                    if($types->attribute->required):
+                                    foreach($types->attribute->required as $key=>$val):
+                                    @$value = $form[$key];
+                                    if(is_object($val)):
+
+                                    if($val->type && $val->type == 'radio'):
+                                    ?>
+                                    <div class="form-group">
+                                        <label>{{$key}}</label>
+                                        @foreach($val->enum as $enum)
+                                            <input type="radio" name="option[{{$index}}][{{$key}}]"
+                                                   {{ ($enum == $value)?"checked":"" }} value="{{$enum}}"> {{$enum}}
+                                        @endforeach
+
+                                    </div>
+
+                                    <?php else:?>
+
+                                    <div class="form-group">
+                                        <label>{{$key}}</label>
+                                        <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val->placeholder}}" value="{{$value}}"
+                                               class="form-control">
+                                    </div>
+                                    <?php endif;?>
+                                    <?php else:?>
+
+                                    <div class="form-group">
+                                        <label>{{$key}}</label>
+                                        <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}" class="form-control">
+                                    </div>
+
+                                    <?php endif;?>
+                                    <?php endforeach; endif;?>
+
+
+
+                                    <?php
+                                    if($types->attribute->requiredOne):
+                                    foreach($types->attribute->requiredOne as $key=>$val):
+                                    @$value = $form[$key];
+                                    ?>
+                                    <div class="form-group">
+                                        <label>{{$key}}</label>
+                                        <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}" class="form-control">
+                                    </div>
+                                    <?php endforeach; endif;?>
+
+                                    <?php
+                                    if($types->attribute->optional):
+                                    foreach($types->attribute->optional as $key=>$val):
+                                    @$value = $form[$key];
+
+                                    ?>
+                                    <div class="form-group">
+                                        <label>{{$key}}</label>
+                                        @if(is_object($val) && property_exists($val, 'type') && $val->type == 'textarea')
+                                            <textarea type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val->placeholder}}"
+                                                      class="form-control">{{$value}}</textarea>
+                                        @else
+                                            <input type="text" name="option[{{$index}}][{{$key}}]" placeholder="{{$val}}" value="{{$value}}"
+                                                   class="form-control">
+                                        @endif
+                                    </div>
+                                    <?php endforeach; endif;?>
+
+
+                                    <?php endif;?>
                                 </div>
                             </td>
                             <td>
@@ -616,19 +557,48 @@
                                 <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
                                 <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
                                 <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
-                                <hr>
                             </td>
                         </tr>
+                        <?php $index++;?>
+                    @endforeach
+
+                    <tr id='tr-sample' style="display: none">
+                        <td><input type='text' placeholder="Input field label" onclick='showColumnSuggest(this)' onkeyup="showColumnSuggestLike(this)"
+                                   class='form-control labels' name='label[]'/></td>
+                        <td><input type='text' placeholder="Input field name" onclick='showNameSuggest(this)' onkeyup="showNameSuggestLike(this)"
+                                   class='form-control name' name='name[]'/></td>
+                        <td><input type='text' placeholder="Input field type" onclick='showTypeSuggest(this)' onkeyup="showTypeSuggestLike(this)"
+                                   class='form-control type' name='type[]'/></td>
+                        <td><input type='text' class='form-control validation' onclick="showValidationSuggest(this)" onkeyup="showValidationSuggestLike(this)"
+                                   name='validation[]' value='required' placeholder='Enter Laravel Validation'/></td>
+                        <td>
+                            <select class='form-control width' name='width[]' style="width: 70px;">
+                                @for($i=10;$i>=1;$i--)
+                                    <option {{ ($i==9)?"selected":"" }} value='col-sm-{{$i}}'>{{$i}}</option>
+                                @endfor
+                            </select>
+                        </td>
+                        <td>
+                            <a class='btn btn-primary btn-options' href='#'><i class='fa fa-cog'></i> Options</a>
+                            <div class='option_area' style="display: none">
+
+                            </div>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
+                            <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
+                            <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
+                            <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
+                        </td>
+                    </tr>
 
 
-                        </tbody>
-                    </table>
-
-                </div>
+                    </tbody>
+                </table>
 
         </div>
         <div class="box-footer">
-            <div class="card-footer text-right">
+            <div align="right" style="float: right;">
                 <button type="button" onclick="location.href='{{CRUDBooster::mainpath('step2').'/'.$id}}'" class="btn btn-default">&laquo; Back</button>
                 <input type="submit" class="btn btn-primary" value="Step 4 &raquo;">
             </div>

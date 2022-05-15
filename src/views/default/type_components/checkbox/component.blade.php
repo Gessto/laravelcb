@@ -1,5 +1,4 @@
-<div class='form-group {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}' id='form-group-{{$name}}'
-     style="{{@$form['style']}}">
+<div class='form-group {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}' id='form-group-{{$name}}' style="{{@$form['style']}}">
     <label class='control-label col-sm-2'>{{$form['label']}}
         @if($required)
             <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
@@ -24,13 +23,9 @@
                 }
                 $checked = ($value && in_array($val, $value)) ? "checked" : "";
                 ?>
-
                 <div class="checkbox {{$disabled}}">
-                    <label class="custom-switch">
-                        <input class="custom-switch-input" type="checkbox" {{$disabled}} {{$checked}} name="{{$name}}[]"
-                               value="{{$val}}">
-                        <span class="custom-switch-indicator"></span>
-                        <span class="custom-switch-description">{{$label}}</span>
+                    <label>
+                        <input type="checkbox" {{$disabled}} {{$checked}} name="{{$name}}[]" value="{{$val}}"> {{$label}}
                     </label>
                 </div>
             @endforeach
@@ -43,7 +38,7 @@
             $datatable_field = $datatable_array[1];
 
             $tables = explode('.', $datatable_tab);
-            $selects_data = DB::table($tables[0])->select($tables[0] . ".id");
+            $selects_data = DB::table($tables[0])->select($tables[0].".id");
 
             if (\Schema::hasColumn($tables[0], 'deleted_at')) {
                 $selects_data->where('deleted_at', NULL);
@@ -56,7 +51,7 @@
             if (count($tables)) {
                 for ($i = 1; $i <= count($tables) - 1; $i++) {
                     $tab = $tables[$i];
-                    $selects_data->leftjoin($tab, $tab . '.id', '=', 'id_' . $tab);
+                    $selects_data->leftjoin($tab, $tab.'.id', '=', 'id_'.$tab);
                 }
             }
 
@@ -68,20 +63,17 @@
                 $foreignKey = CRUDBooster::getForeignKey($table, $form['relationship_table']);
                 $foreignKey2 = CRUDBooster::getForeignKey($datatable_tab, $form['relationship_table']);
 
-                $value = DB::table($form['relationship_table'])->where($form['relationship_table'] . '.' . $foreignKey, $id);
+                $value = DB::table($form['relationship_table'])->where($form['relationship_table'].'.'.$foreignKey, $id);
                 $value = $value->pluck($foreignKey2)->toArray();
 
                 foreach ($selects_data as $d) {
                     $checked = (is_array($value) && in_array($d->id, $value)) ? "checked" : "";
                     echo "
-                <div data-val='$val' class='checkbox $disabled'>
-                    <label class='custom-switch'>
-                        <input class='custom-switch-input' $disabled $checked name='" . $name . "[]' value='" . $d->id . "'>
-                        <span class='custom-switch-indicator'></span>
-                        <span class='custom-switch-description'>" . $d->{$datatable_field} . "</span>
-                    </label>
-                </div>
-";
+												<div data-val='$val' class='checkbox $disabled'>
+												  <label>
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$d->{$datatable_field}."								    
+												  </label>
+												</div>";
                 }
             } else {
                 @$value = explode(';', $value);
@@ -89,16 +81,14 @@
                 foreach ($selects_data as $d) {
                     $val = $d->{$datatable_field};
                     $checked = (is_array($value) && in_array($val, $value)) ? "checked" : "";
-                    if ($val == '' || !$d->id) continue;
+                    if ($val == '' || ! $d->id) continue;
 
                     echo "
-                <div data-val='$val' class='checkbox $disabled'>
-                    <label class='custom-switch'>
-                        <input class='custom-switch-input' $disabled $checked name='" . $name . "[]' value='" . $d->id . "'>
-                        <span class='custom-switch-indicator'></span>
-                        <span class='custom-switch-description'>" . $val . "</span>
-                    </label>
-                </div>";
+												<div data-val='$val' class='checkbox $disabled'>
+												  <label>
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='".$d->id."'> ".$val." 								    
+												  </label>
+												</div>";
                 }
             }
 
@@ -113,19 +103,16 @@
                     $checked = (is_array($value) && in_array($val, $value)) ? "checked" : "";
                     //if($val == '' || !$d->id) continue;
                     echo "
-                <div data-val='$val' class='checkbox $disabled'>
-                    <label class='custom-switch'>
-                        <input class='custom-switch-input' type='checkbox' $disabled $checked name='" . $name . "[]' value='$q->value'>
-                        <span class='custom-switch-indicator'></span>
-                        <span class='custom-switch-description'>" . $q->label . "</span>
-                    </label>
-                </div>";
+												<div data-val='$val' class='checkbox $disabled'>
+												  <label>
+												    <input type='checkbox' $disabled $checked name='".$name."[]' value='$q->value'> ".$q->label." 								    
+												  </label>
+												</div>";
                 }
             }
         }
         ?>
-        <div
-            class="text-danger">{!! $errors->first($name)?"<i class='fa fa-info-circle'></i> ".$errors->first($name):"" !!}</div>
+        <div class="text-danger">{!! $errors->first($name)?"<i class='fa fa-info-circle'></i> ".$errors->first($name):"" !!}</div>
         <p class='help-block'>{{ @$form['help'] }}</p>
     </div>
 </div>

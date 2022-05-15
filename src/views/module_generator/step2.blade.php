@@ -1,56 +1,33 @@
 @extends("crudbooster::admin_template")
 @section("content")
     @push('head')
-        <link rel='stylesheet' href='<?php echo asset("vendor/crudbooster/assets/select2/dist/css/select2.min.css")?>'/>
-        <style>
-            .select2-container--default .select2-selection--single {
-                border-radius: 0px !important
-            }
-
-            .select2-container .select2-selection--single {
-                height: 35px
-            }
-
-        </style>
+        <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/select2.min.css') }}">
     @endpush
     @push('bottom')
-        <script src='<?php echo asset("vendor/crudbooster/assets/select2/dist/js/select2.full.min.js")?>'></script>
+        <script src="{{ asset('vendor/crudbooster/assets/stisla/select2.full.min.js') }}"></script>
         <script>
             $(function () {
                 $('.select2').select2();
             })
-            $('.section-header').hide()
-            $('.section-header-primary').show()
+            $('.section-header').hide();
+            $('.module-generator-header').show();
         </script>
     @endpush
 
-    <div class="col-12 section-header section-header-primary" style="padding: 0px;">
-        <div class="card mb-0">
-            <div class="card-body">
-                <ul class="nav nav-pills">
-                    @if($id)
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep1')."/".$id}}"> Step 1 - Module Information</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link active" href="{{Route('ModulsControllerGetStep2')."/".$id}}">Step 2 - Table Display</a></li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep3')."/".$id}}">Step 3 - Form Display</a></li>
-                        <li role="presentation" class="nav-item">
-                            <a class="nav-link" href="{{Route('ModulsControllerGetStep4')."/".$id}}">Step 4 - Configuration</a></li>
-                    @else
-                        <li role="presentation">
-                            <a class="nav-link active" href="#"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
-                        <li role="presentation" class="nav-link">
-                            <a class="nav-link" href="#"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
-                    @endif
-                </ul>
-            </div>
-        </div>
+
+
+    <div class="section-header module-generator-header">
+        <h1>
+            <!--Now you can define $page_icon alongside $page_tite for custom forms to follow CRUDBooster theme style -->
+            <i class="fa fa-database"></i> Module Generator (Table Display)
+
+            <ul class="nav nav-tabs" style="margin-top: 20px;">
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep1')."/".$id}}"><i class='fa fa-info'></i> Step 1 - Module Information</a></li>
+                <li role="presentation"><a class="btn btn-primary" href="{{Route('ModulsControllerGetStep2')."/".$id}}"><i class='fa fa-table'></i> Step 2 - Table Display</a></li>
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep3')."/".$id}}"><i class='fa fa-plus-square-o'></i> Step 3 - Form Display</a></li>
+                <li role="presentation"><a class="btn btn-secondary" href="{{Route('ModulsControllerGetStep4')."/".$id}}"><i class='fa fa-wrench'></i> Step 4 - Configuration</a></li>
+            </ul>
+        </h1>
     </div>
     @push('head')
         <style>
@@ -303,7 +280,8 @@
         </script>
     @endpush
 
-    <div class="box box-default" style="padding-top: 25px;">
+    <div class="box box-default">
+
         <div class="box-body">
 
             <div class="alert alert-info">
@@ -314,100 +292,95 @@
             <form method="post" action="{{Route('ModulsControllerPostStep3')}}">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="hidden" name="id" value="{{$id}}">
-                <div class="card">
-                    <table class="table table-striped table-md">
-                        <thead>
-                        <tr>
-                            <th>Column</th>
-                            <th>Name</th>
-                            <th colspan='2'>Join (Optional)</th>
-                            <th>CallbackPHP</th>
-                            <th width="90px">Width (px)</th>
-                            <th width='80px'>Image</th>
-                            <th width='80px'>Download</th>
-                            <th width="180px">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @if($cb_col)
-                            @foreach($cb_col as $c)
-                                <tr>
-                                    <td><input value='{{$c["label"]}}' type='text' name='column[]' onclick='showColumnSuggest(this)'
-                                               onKeyUp='showColumnSuggestLike(this)' placeholder='Column Name' class='column form-control notfocus' value=''/></td>
-                                    <td><input value='{{$c["name"]}}' type='text' name='name[]' onclick='showNameSuggest(this)' onKeyUp='showNameSuggestLike(this)'
-                                               placeholder='Field Name' class='name form-control notfocus' value=''/></td>
-                                    <td><input value='{{ @explode(",",$c["join"])[0] }}' type='text' name='join_table[]' onclick='showTable(this)'
-                                               onKeyUp='showTableLike(this)' placeholder='Table Name' class='join_table form-control notfocus' value=''/></td>
-                                    <td><input value='{{ @explode(",",$c["join"])[1] }}' type='text' name='join_field[]' onclick='showTableField(this)'
-                                               onKeyUp='showTableFieldLike(this)' placeholder='Field Name Shown' class='join_field form-control notfocus' value=''/>
-                                    </td>
-                                    <td><input type='text' name='callbackphp[]' class='form-control callbackphp notfocus' value='{{$c["callback_php"]}}'
-                                               placeholder="Optional"/></td>
-                                    <td><input value='{{$c["width"]?:0}}' type='number' name='width[]' class='form-control'/></td>
-                                    <td>
-                                        <select class='form-control is_image' name='is_image[]' style="width: 65px">
-                                            <option {{ (!$c['image'])?"selected":""}} value='0'>N</option>
-                                            <option {{ ($c['image'])?"selected":""}} value='1'>Y</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select class='form-control is_download' name='is_download[]'>
-                                            <option {{ (!$c['download'])?"selected":""}} value='0'>N</option>
-                                            <option {{ ($c['download'])?"selected":""}} value='1'>Y</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
-                                        <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
-                                        <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
-                                        <hr>
 
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                <table class="table-display table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Name</th>
+                        <th colspan='2'>Join (Optional)</th>
+                        <th>CallbackPHP</th>
+                        <th width="90px">Width (px)</th>
+                        <th width='80px'>Image</th>
+                        <th width='80px'>Download</th>
+                        <th width="180px">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($cb_col)
+                        @foreach($cb_col as $c)
+                            <tr>
+                                <td><input value='{{$c["label"]}}' type='text' name='column[]' onclick='showColumnSuggest(this)'
+                                           onKeyUp='showColumnSuggestLike(this)' placeholder='Column Name' class='column form-control notfocus' value=''/></td>
+                                <td><input value='{{$c["name"]}}' type='text' name='name[]' onclick='showNameSuggest(this)' onKeyUp='showNameSuggestLike(this)'
+                                           placeholder='Field Name' class='name form-control notfocus' value=''/></td>
+                                <td><input value='{{ @explode(",",$c["join"])[0] }}' type='text' name='join_table[]' onclick='showTable(this)'
+                                           onKeyUp='showTableLike(this)' placeholder='Table Name' class='join_table form-control notfocus' value=''/></td>
+                                <td><input value='{{ @explode(",",$c["join"])[1] }}' type='text' name='join_field[]' onclick='showTableField(this)'
+                                           onKeyUp='showTableFieldLike(this)' placeholder='Field Name Shown' class='join_field form-control notfocus' value=''/>
+                                </td>
+                                <td><input type='text' name='callbackphp[]' class='form-control callbackphp notfocus' value='{{$c["callback_php"]}}'
+                                           placeholder="Optional"/></td>
+                                <td><input style="width:70px;" value='{{$c["width"]?:0}}' type='number' name='width[]' class='form-control'/></td>
+                                <td>
+                                    <select class='form-control is_image' name='is_image[]' style="width:70px;">
+                                        <option {{ (!$c['image'])?"selected":""}} value='0'>N</option>
+                                        <option {{ ($c['image'])?"selected":""}} value='1'>Y</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class='form-control is_download' name='is_download[]'>
+                                        <option {{ (!$c['download'])?"selected":""}} value='0'>N</option>
+                                        <option {{ ($c['download'])?"selected":""}} value='1'>Y</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
+                                    <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
+                                    <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
 
-                        <tr id="tr-sample" style="display:none">
-                            <td><input type='text' name='column[]' onclick='showColumnSuggest(this)' onKeyUp='showColumnSuggestLike(this)' placeholder='Column Name'
-                                       class='column form-control notfocus' value=''/></td>
-                            <td><input type='text' name='name[]' onclick='showNameSuggest(this)' onKeyUp='showNameSuggestLike(this)' placeholder='Field Name'
-                                       class='name form-control notfocus' value=''/></td>
-                            <td><input type='text' name='join_table[]' onclick='showTable(this)' onKeyUp='showTableLike(this)' placeholder='Table Name'
-                                       class='join_table form-control notfocus' value=''/></td>
-                            <td><input type='text' name='join_field[]' onclick='showTableField(this)' onKeyUp='showTableFieldLike(this)'
-                                       placeholder='Field Name Shown' class='join_field form-control notfocus' value=''/></td>
-                            <td><input type='text' name='callbackphp[]' class='form-control callbackphp notfocus' value='' placeholder="Optional"/></td>
-                            <td><input type='number' name='width[]' value='0' class='form-control'/></td>
-                            <td>
-                                <select class='form-control is_image' name='is_image[]'>
-                                    <option value='0'>N</option>
-                                    <option value='1'>Y</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class='form-control is_download' name='is_download[]'>
-                                    <option value='0'>N</option>
-                                    <option value='1'>Y</option>
-                                </select>
-                            </td>
-                            <td>
-                                <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
-                                <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
-                                <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
-                                <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
-                                <hr>
-                            </td>
-                        </tr>
+                    <tr id="tr-sample" style="display:none">
+                        <td><input type='text' name='column[]' onclick='showColumnSuggest(this)' onKeyUp='showColumnSuggestLike(this)' placeholder='Column Name'
+                                   class='column form-control notfocus' value=''/></td>
+                        <td><input type='text' name='name[]' onclick='showNameSuggest(this)' onKeyUp='showNameSuggestLike(this)' placeholder='Field Name'
+                                   class='name form-control notfocus' value=''/></td>
+                        <td><input type='text' name='join_table[]' onclick='showTable(this)' onKeyUp='showTableLike(this)' placeholder='Table Name'
+                                   class='join_table form-control notfocus' value=''/></td>
+                        <td><input type='text' name='join_field[]' onclick='showTableField(this)' onKeyUp='showTableFieldLike(this)'
+                                   placeholder='Field Name Shown' class='join_field form-control notfocus' value=''/></td>
+                        <td><input type='text' name='callbackphp[]' class='form-control callbackphp notfocus' value='' placeholder="Optional"/></td>
+                        <td><input style="width:70px;" type='number' name='width[]' value='0' class='form-control'/></td>
+                        <td>
+                            <select class='form-control is_image' name='is_image[]' style="width:70px;">
+                                <option value='0'>N</option>
+                                <option value='1'>Y</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class='form-control is_download' name='is_download[]'>
+                                <option value='0'>N</option>
+                                <option value='1'>Y</option>
+                            </select>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" class="btn btn-info btn-plus"><i class='fa fa-plus'></i></a>
+                            <a href="javascript:void(0)" class="btn btn-danger btn-delete"><i class='fa fa-trash'></i></a><br>
+                            <a href="javascript:void(0)" class="btn btn-success btn-up"><i class='fa fa-arrow-up'></i></a>
+                            <a href="javascript:void(0)" class="btn btn-success btn-down"><i class='fa fa-arrow-down'></i></a>
+                        </td>
+                    </tr>
 
-                        </tbody>
-                    </table>
-
-                </div>
+                    </tbody>
+                </table>
 
         </div>
         <div class="box-footer">
-            <div class="card-footer text-right">
+            <div align="right" style="float: right;">
                 <button type="button" onclick="location.href='{{CRUDBooster::mainpath('step1').'/'.$id}}'" class="btn btn-default">&laquo; Back</button>
                 <input type="submit" class="btn btn-primary" value="Step 3 &raquo;">
             </div>

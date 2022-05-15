@@ -1,25 +1,11 @@
 @push('head')
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/select2/dist/css/select2.min.css">
-    <style type="text/css">
-        .select2-container--default .select2-selection--single {
-            border-radius: 0px !important
-        }
-
-        .select2-container .select2-selection--single {
-            height: 35px
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice {
-            background-color: #3c8dbc !important;
-            border-color: #367fa9 !important;
-            color: #fff !important;
-        }
-
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-            color: #fff !important;
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @endpush
 @push('bottom')
-    <script src="https://demo.getstisla.com/assets/modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+      setTimeout(()=>{
+          $('.select2-selection__rendered').css('padding-top','5px')
+      },300)
+    </script>
 @endpush

@@ -5,20 +5,20 @@
     <div class="col-md-12">
 
 
-        @if(CRUDBooster::getCurrentMethod() != 'getProfile')
-            <p><a href='{{CRUDBooster::mainpath()}}'>{{cbLang("form_back_to_list",['module'=>CRUDBooster::getCurrentModule()->name])}}</a></p>
-    @endif
+{{--        @if(CRUDBooster::getCurrentMethod() != 'getProfile')--}}
+{{--            <p><a href='{{CRUDBooster::mainpath()}}'>{{cbLang("form_back_to_list",['module'=>CRUDBooster::getCurrentModule()->name])}}</a></p>--}}
+{{--    @endif--}}
 
 
 
     <!-- Box -->
         <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">{{ $page_title }}</h3>
-                <div class="box-tools">
+{{--            <div class="box-header with-border">--}}
+{{--                <h3 class="box-title">{{ $page_title }}</h3>--}}
+{{--                <div class="box-tools">--}}
 
-                </div>
-            </div>
+{{--                </div>--}}
+{{--            </div>--}}
             <form method='post' action='{{ (@$row->id)?route("PrivilegesControllerPostEditSave")."/$row->id":route("PrivilegesControllerPostAddSave") }}'>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
@@ -42,53 +42,47 @@
                         <div class="text-danger">{{ $errors->first('is_superadmin') }}</div>
                     </div>
 
-{{--                    <div class='form-group'>--}}
-{{--                        <label>{{cbLang('chose_theme_color')}}</label>--}}
-{{--                        <select name='theme_color' class='form-control' required>--}}
-{{--                            <option value=''>{{cbLang('chose_theme_color_select')}}</option>--}}
-{{--                            <?php--}}
-{{--                            $skins = array(--}}
-{{--                                'skin-blue',--}}
-{{--                                'skin-blue-light',--}}
-{{--                                'skin-yellow',--}}
-{{--                                'skin-yellow-light',--}}
-{{--                                'skin-green',--}}
-{{--                                'skin-green-light',--}}
-{{--                                'skin-purple',--}}
-{{--                                'skin-purple-light',--}}
-{{--                                'skin-red',--}}
-{{--                                'skin-red-light',--}}
-{{--                                'skin-black',--}}
-{{--                                'skin-black-light'--}}
-{{--                            );--}}
-{{--                            foreach($skins as $skin):--}}
-{{--                            ?>--}}
-{{--                            <option <?=(@$row->theme_color == $skin) ? "selected" : ""?> value='<?=$skin?>'><?=ucwords(str_replace('-', ' ', $skin))?></option>--}}
-{{--                            <?php endforeach;?>--}}
-{{--                        </select>--}}
-{{--                        <div class="text-danger">{{ $errors->first('theme_color') }}</div>--}}
-{{--                        @push('bottom')--}}
-{{--                            <script type="text/javascript">--}}
-{{--                                $(function () {--}}
-{{--                                    $("select[name=theme_color]").change(function () {--}}
-{{--                                        var n = $(this).val();--}}
-{{--                                        $("body").attr("class", n);--}}
-{{--                                    })--}}
+                    <div class='form-group'>
+                        <label>{{cbLang('chose_theme_color')}}</label>
+                        <select name='theme_color' class='form-control' required>
+                            <option value=''>{{cbLang('chose_theme_color_select')}}</option>
+                            <?php
+                            $skins = array(
+                                'skin-blue',
+                                'skin-yellow',
+                                'skin-green',
+                                'skin-purple',
+                                'skin-red',
+                                'skin-black',
+                            );
+                            foreach($skins as $skin):
+                            ?>
+                            <option <?=(@$row->theme_color == $skin) ? "selected" : ""?> value='<?=$skin?>'><?=ucwords(str_replace('-', ' ', $skin))?></option>
+                            <?php endforeach;?>
+                        </select>
+                        <div class="text-danger">{{ $errors->first('theme_color') }}</div>
+                        @push('bottom')
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("select[name=theme_color]").change(function () {
+                                        var n = $(this).val();
+                                        $("body").attr("class", n);
+                                    })
 
-{{--                                    $('#set_as_superadmin input').click(function () {--}}
-{{--                                        var n = $(this).val();--}}
-{{--                                        if (n == '1') {--}}
-{{--                                            $('#privileges_configuration').hide();--}}
-{{--                                        } else {--}}
-{{--                                            $('#privileges_configuration').show();--}}
-{{--                                        }--}}
-{{--                                    })--}}
+                                    $('#set_as_superadmin input').click(function () {
+                                        var n = $(this).val();
+                                        if (n == '1') {
+                                            $('#privileges_configuration').hide();
+                                        } else {
+                                            $('#privileges_configuration').show();
+                                        }
+                                    })
 
-{{--                                    $('#set_as_superadmin input:checked').trigger('click');--}}
-{{--                                })--}}
-{{--                            </script>--}}
-{{--                        @endpush--}}
-{{--                    </div>--}}
+                                    $('#set_as_superadmin input:checked').trigger('click');
+                                })
+                            </script>
+                        @endpush
+                    </div>
 
                     <div id='privileges_configuration' class='form-group'>
                         <label>{{cbLang('privileges_configuration')}}</label>

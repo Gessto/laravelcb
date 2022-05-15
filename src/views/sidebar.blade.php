@@ -20,22 +20,17 @@
             @endif
 
             @foreach(CRUDBooster::sidebarMenu() as $menu)
-                <li data-id='{{$menu->id}}'
-                    class='{{(!empty($menu->children))?"treeview":""}} {{ (Request::is($menu->url_path."*"))?"active":""}}'>
-                    <a href='{{ ($menu->is_broken)?"javascript:alert('".cbLang('controller_route_404')."')":$menu->url }}'
-                       class='{{($menu->color)?"text-".$menu->color:""}}'>
+                <li class="dropdown">
+                    <a class="nav-link @if(!empty($menu->children))has-dropdown @endif" href='{{ ($menu->is_broken)?"javascript:alert('".cbLang('controller_route_404')."')":$menu->url }}'>
                         <i class='{{$menu->icon}} {{($menu->color)?"text-".$menu->color:""}}'></i>
                         <span>{{$menu->name}}</span>
-                        @if(!empty($menu->children))<i
-                            class="fa fa-angle-{{ cbLang("right") }} pull-{{ cbLang("right") }}"></i>@endif
                     </a>
                     @if(!empty($menu->children))
-                        <ul class="treeview-menu">
+                        <ul class="dropdown-menu">
                             @foreach($menu->children as $child)
-                                <li data-id='{{$child->id}}'
-                                    class='{{(Request::is($child->url_path .= !Str::endsWith(Request::decodedPath(), $child->url_path) ? "/*" : ""))?"active":""}}'>
-                                    <a href='{{ ($child->is_broken)?"javascript:alert('".cbLang('controller_route_404')."')":$child->url}}'
-                                       class='{{($child->color)?"text-".$child->color:""}}'>
+                                <li data-id='{{$child->id}}'>
+                                    <a  href='{{ ($child->is_broken)?"javascript:alert('".cbLang('controller_route_404')."')":$child->url}}'
+                                        class='{{($child->color)?"text-".$child->color:""}} nav-link'>
                                         <i class='{{$child->icon}}'></i> <span>{{$child->name}}</span>
                                     </a>
                                 </li>
@@ -153,11 +148,14 @@
             @endif
 
         </ul><!-- /.sidebar-menu -->
-        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="{{Route("LogsControllerGetIndex")}}" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> {{ cbLang('Log_User_Access') }}
-            </a>
-        </div>
+        @if(CRUDBooster::isSuperadmin())
+            <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+                <a href="{{Route("LogsControllerGetIndex")}}" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                    <i class="fas fa-rocket"></i> {{ cbLang('Log_User_Access') }}
+                </a>
+            </div>
+        @endif
+
 
     </aside>
 </div>

@@ -84,9 +84,9 @@
 
     </script>
     <!--DATATABLE-->
-    <link rel="stylesheet" href="{{ asset ('vendor/crudbooster/assets/adminlte/plugins/datatables/dataTables.bootstrap.css')}}">
-    <script src="{{ asset ('vendor/crudbooster/assets/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{ asset ('vendor/crudbooster/assets/adminlte/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/dataTables.bootstrap4.min.css') }}">
+    <script src="{{ asset('vendor/crudbooster/assets/stisla/datatables.min.js') }}"></script>
+    <script src="{{ asset('vendor/crudbooster/assets/stisla/dataTables.bootstrap4.min.js') }}"></script>
     <!--END HERE-->
 @endpush
 
@@ -151,7 +151,7 @@
         }
 
         @endif
-        
+
         .connectedSortable {
             position: relative;
         }

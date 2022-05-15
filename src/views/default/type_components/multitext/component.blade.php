@@ -1,13 +1,22 @@
- <div class="col-sm-12 form-group {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}" id='form-group-{{$name}}'>
+<div class='form-group {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}' id='form-group-{{$name}}' style="{{@$form['style']}}">
+    <label class='control-label'>{{$form['label']}}
+        @if($required)
+            <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
+        @endif
+    </label>
 
-        <label>{{$form['label']}}@if($required)
-                <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
-            @endif</label>
-        <input type="text" class="form-control" title="{{$form['label']}}"
-               {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['max']?"maxlength=".$validation['max']:""}} class='form-control {{$name}} first_value'
-               name="{{$name}}[]" id="{{$name}}" value='{{$value}}'>
+    <div class="input_fields_wrap {{$name}}">
+
+        <div class="input-group">
+            <input type='text' title="{{$form['label']}}"
+                   {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['max']?"maxlength=".$validation['max']:""}} class='form-control {{$name}} first_value'
+                   name="{{$name}}[]" id="{{$name}}" value='{{$value}}'/> <span class="input-group-addon" style="padding: 1px;"><button
+                        class="add_field_button {{$name}}  btn btn-danger  btn-xs"><i class='fa fa-plus'></i></button></span>
+        </div>
+
         <div class="text-danger">{!! $errors->first($name)?"<i class='fa fa-info-circle'></i> ".$errors->first($name):"" !!}</div>
         <p class='help-block'>{{ @$form['help'] }}</p>
+
     </div>
 
     @push('bottom')
@@ -22,7 +31,7 @@
                 var count_{{$name}} = 1; //initlal text box count
                 $(add_button_{{$name}}).click(function (e) { //on add input button click
                     e.preventDefault();
-                    if (count_{{$name}} < max_fields_{{$name}}) { //max input box allowed
+                    if (count_{{$name}} < max_fields_{{$name}} ) { //max input box allowed
                         count_{{$name}}++; //text box increment
                         $(wrapper_{{$name}}).append('<div><input class="form-control" {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} {{$validation['max']?"maxlength=".$validation['max']:""}} type="text" name="{{$name}}[]"/><a href="#" class="remove_field {{$name}}"><i class="fa fa-minus"></a></div>'); //add input box
                     }

@@ -118,14 +118,13 @@
 @endif
 
 <div class='form-group {{$header_group_class}} {{ ($errors->first($name))?"has-error":"" }}' id='form-group-{{$name}}' style="{{@$form['style']}}">
-    <label class='control-label col-sm-2'>{{$form['label']}}
+    <label class='control-label'>{{$form['label']}}
         @if($required)
             <span class='text-danger' title='{!! cbLang('this_field_is_required') !!}'>*</span>
         @endif
     </label>
 
-    <div class="{{$col_width?:'col-sm-10'}}">
-        <select style='width:100%' class='form-control' id="{{$name}}"
+        <select style='width:100%' class='form-control select2 select2-hidden-accessible' id="{{$name}}" tyle="width: 100%;" tabindex="-1" aria-hidden="true"
                 {{$required}} {{$readonly}} {!!$placeholder!!} {{$disabled}} name="{{$name}}{{($form['relationship_table'])?'[]':''}}" {{ ($form['relationship_table'])?'multiple="multiple"':'' }} >
             @if($form['dataenum'])
                 <option value=''>{{cbLang('text_prefix_option')}} {{$form['label']}}</option>
@@ -175,7 +174,7 @@
                         $value = DB::table($form['relationship_table'])->where($foreignKey, $id);
                         $value = $value->pluck($foreignKey2)->toArray();
                     }
-                    
+
                     foreach ($result as $r) {
                         $option_label = $r->{$select_title};
                         $option_value = $r->id;
@@ -225,5 +224,5 @@
         </div><!--end-text-danger-->
         <p class='help-block'>{{ @$form['help'] }}</p>
 
-    </div>
+
 </div>

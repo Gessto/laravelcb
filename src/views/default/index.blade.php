@@ -25,10 +25,10 @@
     @endif
 
 
-    @if(g('return_url'))
-        <p><a href='{{g("return_url")}}'><i class='fa fa-chevron-circle-{{ cbLang('left') }}'></i>
-                &nbsp; {{cbLang('form_back_to_list',['module'=>urldecode(g('label'))])}}</a></p>
-    @endif
+{{--    @if(g('return_url'))--}}
+{{--        <p><a href='{{g("return_url")}}'><i class='fa fa-chevron-circle-{{ cbLang('left') }}'></i>--}}
+{{--                &nbsp; {{cbLang('form_back_to_list',['module'=>urldecode(g('label'))])}}</a></p>--}}
+{{--    @endif--}}
 
     @if($parent_table)
         <div class="box box-default">
@@ -66,22 +66,16 @@
                             {{cbLang("button_selected_action")}}
                         </a>
 
-
-                        <ul class="dropdown-menu">
-
+                        <div class="dropdown-menu" x-placement="bottom-start">
                             @if($button_delete && CRUDBooster::isDelete())
-                                <li><a href="javascript:void(0)" data-name='delete' title='{{cbLang('action_delete_selected')}}'><i
-                                                class="fa fa-trash"></i> {{cbLang('action_delete_selected')}}</a></li>
+                                <a class="dropdown-item" href="javascript:void(0)" data-name='delete' title='{{cbLang('action_delete_selected')}}'><i class="fa fa-{{$button['icon']}}"></i>{{cbLang('action_delete_selected')}}</a>
                             @endif
-
-                            @if($button_selected)
-                                @foreach($button_selected as $button)
-                                    <li><a href="javascript:void(0)" data-name='{{$button["name"]}}' title='{{$button["label"]}}'><i
-                                                    class="fa fa-{{$button['icon']}}"></i> {{$button['label']}}</a></li>
-                                @endforeach
-                            @endif
-
-                        </ul><!--end-dropdown-menu-->
+                                @if($button_selected)
+                                    @foreach($button_selected as $button)
+                                        <a class="dropdown-item" href="javascript:void(0)" data-name='{{$button["name"]}}' title='{{$button["label"]}}'><i class="fa fa-{{$button['icon']}}"></i>{{$button['label']}}</a>
+                                    @endforeach
+                                @endif
+                        </div>
                     </div><!--end-selected-action-->
                 </div><!--end-pull-left-->
             @endif
@@ -115,7 +109,9 @@
                                 <button type='button' onclick='location.href="{{ CRUDBooster::mainpath().$build_query}}"'
                                         title="{{cbLang('button_reset')}}" class='btn btn-sm btn-warning'><i class='fa fa-ban'></i></button>
                             @endif
-                            <button type='submit' class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                            <button type='submit' class="btn btn-sm btn-primary" style="width: 50px; height:43px;">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
                     </div>
                 </form>

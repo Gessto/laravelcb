@@ -4,24 +4,15 @@
     <title>{{cbLang('page_not_found_text')}}</title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/all.min.css') }}">
 
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
-    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
-    <!-- Start GA -->
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-94034622-3');
-    </script>
-    <!-- /END GA --></head>
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/components.min.css') }}">
+</head>
 
 <body>
 <div id="app">
@@ -48,20 +39,20 @@
 </div>
 
 <!-- General JS Scripts -->
-<script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/tooltip.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
-<script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/popper.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/tooltip.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/bootstrap.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/moment.min.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/stisla.js') }}"></script>
 
 <!-- JS Libraies -->
 
 <!-- Page Specific JS File -->
 
 <!-- Template JS File -->
-<script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
-<script src="https://demo.getstisla.com/assets/js/custom.js"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/scripts.js') }}"></script>
+<script src="{{ asset('vendor/crudbooster/assets/stisla/custom.js') }}"></script>
 
 </body></html>
