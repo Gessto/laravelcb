@@ -112,7 +112,7 @@
                                     if ($value) {
                                         echo "<p><a href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
                                         echo "<input type='hidden' name='$s->name' value='$value'/>";
-                                        echo "<div class='pull-right'><a class='btn btn-danger btn-xs' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
+                                        echo "<div class='pull-right' style='float:right;margin-top:-25px;'><a class='btn btn-danger btn-xs' style='color:#fff;' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
                                     } else {
                                         echo "<input type='file' name='$s->name' class='form-control'/>";
                                     }
@@ -122,7 +122,7 @@
                                     if ($value) {
                                         echo "<p><a href='".asset($value)."' target='_blank' title='Download the file of $s->label'><i class='fa fa-download'></i> Download the File  of $s->label</a></p>";
                                         echo "<input type='hidden' name='$s->name' value='$value'/>";
-                                        echo "<div class='pull-right'><a class='btn btn-danger btn-xs' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
+                                        echo "<div class='pull-right' style='float:right; margin-top:-25px;'><a class='btn btn-danger btn-xs' style='color:#fff;' onclick='if(confirm(\"Are you sure want to delete ?\")) location.href=\"".CRUDBooster::mainpath("delete-file-setting?id=$s->id")."\"' title='Click here to delete'><i class='fa fa-trash'></i></a></div>";
                                     } else {
                                         echo "<input type='file' name='$s->name' class='form-control'/>";
                                     }

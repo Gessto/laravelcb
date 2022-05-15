@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/crudbooster/assets/stisla/components.css') }}">
 
     @php
-        $mainColor = CRUDBooster::getSetting('login_font_color');
+        $mainColor = CRUDBooster::getSetting('login_background_color');
 
         if(Session::get('theme_color') == 'skin-blue'){
             $mainColor = '#48cae4';
