@@ -301,7 +301,7 @@ $total = $result->total();
 
         <!-- MODAL FOR SORTING DATA-->
         <div class="modal fade" tabindex="-1" role="dialog" id='advanced_filter_modal'>
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg  modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"><i class='fa fa-filter'></i> {{cbLang("filter_dialog_title")}}</h5>
@@ -456,7 +456,7 @@ $total = $result->total();
 
         <!-- MODAL FOR EXPORT DATA-->
         <div class="modal fade" tabindex="-1" role="dialog" id='export-data'>
-            <div class="modal-dialog">
+            <div class="modal-dialog  modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button class="close" aria-label="Close" type="button" data-dismiss="modal">

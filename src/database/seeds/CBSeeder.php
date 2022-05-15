@@ -174,8 +174,8 @@ class CBSeeder extends Seeder
             [
                 'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'login_background_color',
-                'label' => 'Login Background Color',
-                'content' => null,
+                'label' => 'Login buttons and links color',
+                'content' => '#007bff',
                 'content_input_type' => 'text',
                 'group_setting' => cbLang('login_register_style'),
                 'dataenum' => null,
@@ -313,16 +313,6 @@ class CBSeeder extends Seeder
                 'content_input_type' => 'select',
                 'group_setting' => cbLang('application_setting'),
                 'dataenum' => 'true,false',
-                'helper' => null,
-            ],
-            [
-                'created_at' => date('Y-m-d H:i:s'),
-                'name' => 'primary_color_login_forgot',
-                'label' => 'Primary color for login and forgot',
-                'content' => '#007bff',
-                'content_input_type' => 'text',
-                'group_setting' => cbLang('application_setting'),
-                'dataenum' => null,
                 'helper' => null,
             ],
             [
