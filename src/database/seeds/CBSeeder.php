@@ -317,6 +317,16 @@ class CBSeeder extends Seeder
             ],
             [
                 'created_at' => date('Y-m-d H:i:s'),
+                'name' => 'primary_color_login_forgot',
+                'label' => 'Primary color for login and forgot',
+                'content' => '#007bff',
+                'content_input_type' => 'text',
+                'group_setting' => cbLang('application_setting'),
+                'dataenum' => null,
+                'helper' => null,
+            ],
+            [
+                'created_at' => date('Y-m-d H:i:s'),
                 'name' => 'google_api_key',
                 'label' => 'Google API Key',
                 'content' => '',

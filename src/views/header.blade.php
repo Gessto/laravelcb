@@ -11,9 +11,6 @@
                 <div class="d-sm-none d-lg-inline-block">{{ CRUDBooster::myName() }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">{{ CRUDBooster::myPrivilegeName() }}</div>
-                <a href="{{ route('getLockScreen') }}" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Lockscreen
-                </a>
                 <a href="{{ route('AdminCmsUsersControllerGetProfile') }}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Edit profile
                 </a>

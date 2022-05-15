@@ -16,35 +16,6 @@ class AdminController extends CBController
         return view('crudbooster::home', $data);
     }
 
-    public function getLockscreen()
-    {
-
-        if (! CRUDBooster::myId()) {
-            Session::flush();
-
-            return redirect()->route('getLogin')->with('message', cbLang('alert_session_expired'));
-        }
-
-        Session::put('admin_lock', 1);
-
-        return view('crudbooster::lockscreen');
-    }
-
-    public function postUnlockScreen()
-    {
-        $id = CRUDBooster::myId();
-        $password = request('password');
-        $users = DB::table(config('crudbooster.USER_TABLE'))->where('id', $id)->first();
-
-        if (\Hash::check($password, $users->password)) {
-            Session::put('admin_lock', 0);
-
-            return redirect(CRUDBooster::adminPath());
-        } else {
-            echo "<script>alert('".cbLang('alert_password_wrong')."');history.go(-1);</script>";
-        }
-    }
-
     public function getLogin()
     {
 

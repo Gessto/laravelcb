@@ -53,9 +53,6 @@ class CBRouter
 
     private static function authRoute() {
         Route::group(['middleware' => ['web'], 'prefix' => config('crudbooster.ADMIN_PATH'), 'namespace' => static::$cb_namespace], function () {
-
-            Route::post('unlock-screen', ['uses' => 'AdminController@postUnlockScreen', 'as' => 'postUnlockScreen']);
-            Route::get('lock-screen', ['uses' => 'AdminController@getLockscreen', 'as' => 'getLockScreen']);
             Route::post('forgot', ['uses' => 'AdminController@postForgot', 'as' => 'postForgot']);
             Route::get('forgot', ['uses' => 'AdminController@getForgot', 'as' => 'getForgot']);
             Route::post('register', ['uses' => 'AdminController@postRegister', 'as' => 'postRegister']);
@@ -111,7 +108,7 @@ class CBRouter
             if (request()->is(config('crudbooster.ADMIN_PATH'))) {
                 $menus = db('cms_menus')->where('is_dashboard', 1)->first();
                 if ($menus) {
-                    
+
                 } else {
                     CRUDBooster::routeController('/', 'AdminController', static::$cb_namespace);
                 }

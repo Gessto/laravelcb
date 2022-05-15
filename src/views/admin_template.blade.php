@@ -328,6 +328,9 @@
         .page-link{
             color: #000!important;
         }
+        .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled:active{
+            background-color: {{$mainColor}}!important;
+        }
         /*
         *
         *
