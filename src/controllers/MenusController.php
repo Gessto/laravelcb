@@ -73,7 +73,7 @@ class MenusController extends CBController
 				}
 
 
-				function format(icon) {          
+				function format(icon) {
 	                  var originalOption = icon.element;
 	                  var label = $(originalOption).text();
 	                  var val = $(originalOption).val();
@@ -128,10 +128,10 @@ class MenusController extends CBController
 						$('#form-group-path label').append('<span class=\"text-danger\" title=\"".cbLang('this_field_is_required')."\">*</span>');
 
 						$('#form-group-path').show();
-						$('#form-group-module_slug,#form-group-statistic_slug').hide();					
+						$('#form-group-module_slug,#form-group-statistic_slug').hide();
 					}else {
 						$('#module_slug,#statistic_slug').prop('required',false);
-						
+
 						$('#path').prop('required',true);
 						$('#form-group-path label .text-danger').remove();
 						$('#form-group-path label').append('<span class=\"text-danger\" title=\"".cbLang('this_field_is_required')."\">*</span>');
@@ -170,7 +170,7 @@ class MenusController extends CBController
             "name" => "type",
             "type" => "radio",
             "required" => true,
-            'dataenum' => ['Module', 'Statistic', 'URL', 'Controller & Method', 'Route'],
+            'dataenum' => ['Module', 'URL', 'Controller & Method', 'Route'],
             'value' => 'Module',
         ];
 

@@ -33,12 +33,6 @@
     var ASSET_URL = "{{asset('/')}}";
     var APP_NAME = "{{Session::get('appname')}}";
     var ADMIN_PATH = '{{url(config("crudbooster.ADMIN_PATH")) }}';
-    var NOTIFICATION_JSON = "{{route('NotificationsControllerGetLatestJson')}}";
-    var NOTIFICATION_INDEX = "{{route('NotificationsControllerGetIndex')}}";
-
-    var NOTIFICATION_YOU_HAVE = "{{cbLang('notification_you_have')}}";
-    var NOTIFICATION_NOTIFICATIONS = "{{cbLang('notification_notification')}}";
-    var NOTIFICATION_NEW = "{{cbLang('notification_new')}}";
 </script>
 {{--<script src="{{asset('vendor/crudbooster/assets/js/main.js').'?r='.time()}}"></script>--}}
 

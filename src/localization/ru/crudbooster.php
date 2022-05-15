@@ -7,8 +7,6 @@ return [
     'page_title_forgot'          => 'Вспомнить пароль',
     'forgot_message'             => 'Для запроса пароля введите Ваш email',
     "forgot_text_try_again"      => "Вернуться назад?",
-    'text_no_notification'       => "У вас нет сообщений",
-    'text_view_all_notification' => 'Показать все',
     'label_button_profile'       => "Профиль",
     'filter_dialog_title'        => 'Расширенная Сортировка & Отбор',
     'there_is_no_option'         => 'Для этого типа входных данных нет никаких настроек',
@@ -145,7 +143,6 @@ return [
     'online'               => 'Онлайн',
     'controller_route_404' => 'Controller / Route НЕ НАЙДЕН !',
     'home'                 => 'Главная',
-    'Notifications' 	  => 'Оповещения',
     'Privileges'    	  => 'Доступ',
     'Privileges_Roles'    => 'Роли',
     'Add_New_Privilege'   => 'Добавить Роль',
@@ -186,10 +183,6 @@ return [
     'all_rights_reserved' => 'Все права защищены',
     'copyright'           => 'Авторские права',
     'powered_by'          => 'Создано на',
-
-    'notification_you_have'     => 'У вас есть',
-    'notification_notification' => 'Сообщения',
-    'notification_new'          => 'У вас есть новое сообщение !',
 
     'login_register_style'         => 'Настройки стр.входа',
     'email_setting'                => 'Настройки почты',

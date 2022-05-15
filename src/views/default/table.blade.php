@@ -304,9 +304,10 @@ $total = $result->total();
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" aria-label="Close" type="button" data-dismiss="modal">
-                            <span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title"><i class='fa fa-filter'></i> {{cbLang("filter_dialog_title")}}</h4>
+                        <h5 class="modal-title"><i class='fa fa-filter'></i> {{cbLang("filter_dialog_title")}}</h5>
+                        <button type="button" class="close" aria-label="Close" type="button" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
                     <form method='get' action=''>
                         <div class="modal-body">

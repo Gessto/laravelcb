@@ -282,7 +282,9 @@
         .main-sidebar .sidebar-menu li ul.dropdown-menu li.active > a {
             color: {{$mainColor}};
         }
-
+        :root{
+            --blue:{{$mainColor}};
+        }
         /*
         *
         *

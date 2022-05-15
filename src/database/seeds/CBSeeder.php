@@ -47,17 +47,6 @@ class CBSeeder extends Seeder
             [
 
                 'created_at' => date('Y-m-d H:i:s'),
-                'name' => cbLang('Notifications'),
-                'icon' => 'fa fa-cog',
-                'path' => 'notifications',
-                'table_name' => 'cms_notifications',
-                'controller' => 'NotificationsController',
-                'is_protected' => 1,
-                'is_active' => 1,
-            ],
-            [
-
-                'created_at' => date('Y-m-d H:i:s'),
                 'name' => cbLang('Privileges'),
                 'icon' => 'fa fa-cog',
                 'path' => 'privileges',
@@ -392,9 +381,6 @@ class CBSeeder extends Seeder
                         break;
                     case 'cms_apicustom':
                         $is_visible = 0;
-                        break;
-                    case 'cms_notifications':
-                        $is_create = $is_read = $is_edit = $is_delete = 0;
                         break;
                 }
 

@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => '忘记密码',
     'forgot_message' => '请输入您的电子邮件地址,以便找回您的密码',
     "forgot_text_try_again" => "再次登录?",
-    'text_no_notification' => "你没有收到任何通知",
-    'text_view_all_notification' => '查看全部',
     'label_button_profile' => "个人中心",
     'filter_dialog_title' => '筛选',
     'there_is_no_option' => '该输入类型没有选择配置',
@@ -141,7 +139,6 @@ return [
     'online' => '在线',
     'controller_route_404' => '页面不存在',
     'home' => '首页',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => '角色权限',
     'Add_New_Privilege' => '新增角色',
@@ -182,10 +179,6 @@ return [
     'all_rights_reserved' => 'All Rights Reserved',
     'copyright' => 'Copyright',
     'powered_by' => 'Powered by',
-
-    'notification_you_have' => '你收到',
-    'notification_notification' => '通知',
-    'notification_new' => '你收到一条新的通知!',
 
     'login_register_style' => '登录风格',
     'email_setting' => '邮箱设置',

@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => 'Şifremi Unuttum',
     'forgot_message' => 'Parola isteğinde bulunmak için e-posta adresinizi girin',
     "forgot_text_try_again" => "Tekrar giriş yapınız ?",
-    'text_no_notification' => "Bildiriminiz yok",
-    'text_view_all_notification' => 'Tümünü Göster',
     'label_button_profile' => "Profil",
     'filter_dialog_title' => 'Gelişmiş Filtreleme & Sıralama',
     'there_is_no_option' => 'Bu girdi türü için herhangi bir seçenek ayarı yok',
@@ -142,7 +140,6 @@ return [
     'online' => 'Çevrimiçi',
     'controller_route_404' => 'Controller / Route Sayfa bulunamadı',
     'home' => 'Anasayfa',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => 'Yetki Rolleri',
     'Add_New_Privilege' => 'Rol Ekle',
@@ -183,10 +180,6 @@ return [
     'all_rights_reserved' => 'Tüm Hakları Saklıdır',
     'copyright' => 'Copyright',
     'powered_by' => 'Powered by',
-
-    'notification_you_have' => '',
-    'notification_notification' => 'bildirimin var',
-    'notification_new' => 'Yeni bildirimin var!',
 
     'login_register_style' => 'Kayıt Sayfası Stili',
     'email_setting' => 'Email Ayarları',

@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => 'نسيت كلمة المرور',
     'forgot_message' => 'ادخل بريدك الإلكتروني لاستعادة كلمة المرور',
     "forgot_text_try_again" => " حاول تسجيل الدخول مرة اخرى ?",
-    'text_no_notification' => "لا توجد لديك تنبيهات",
-    'text_view_all_notification' => 'عرض الكل',
     'label_button_profile' => "الملف الشخصي",
     'filter_dialog_title' => 'فرز متقدم',
 
@@ -138,7 +136,6 @@ return [
     'online' => 'متصل',
     'controller_route_404' => 'لم يتم العثور على الرابط المطلوب',
     'home' => 'الرئيسية',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => 'صلاحيات الوصول',
     'Add_New_Privilege' => 'اضافة صلاحية',
@@ -179,11 +176,7 @@ return [
     'all_rights_reserved' => 'كافة الحقوق محفوظة',
     'copyright' => 'حقوق النسخ',
     'powered_by' => 'انشئ بواسطة',
-
-    'notification_you_have' => 'لديك',
-    'notification_notification' => 'تنبيهات',
-    'notification_new' => 'لديك تنبيه جديد',
-
+    
     'login_register_style' => 'شاشة الدخول والتسجيل',
     'email_setting' => 'اعدادات البريد',
     'application_setting' => 'اعدادات عامة',

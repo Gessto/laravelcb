@@ -1171,25 +1171,6 @@ class CRUDBooster
         }
     }
 
-    public static function sendNotification($config = [])
-    {
-        $content = $config['content'];
-        $to = $config['to'];
-        $id_cms_users = $config['id_cms_users'];
-        $id_cms_users = ($id_cms_users) ?: [CRUDBooster::myId()];
-        foreach ($id_cms_users as $id) {
-            $a = [];
-            $a['created_at'] = date('Y-m-d H:i:s');
-            $a['id_cms_users'] = $id;
-            $a['content'] = $content;
-            $a['is_read'] = 0;
-            $a['url'] = $to;
-            DB::table('cms_notifications')->insert($a);
-        }
-
-        return true;
-    }
-
     public static function sendFCM($regID = [], $data)
     {
         if (! $data['title'] || ! $data['content']) {

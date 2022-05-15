@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => 'Forgot Password',
     'forgot_message' => 'Enter your email address, to request password',
     "forgot_text_try_again" => "Try login again ?",
-    'text_no_notification' => "You have 0 notifications",
-    'text_view_all_notification' => 'View All',
     'label_button_profile' => "Profile",
     'filter_dialog_title' => 'Advanced Sort & Filter',
     'there_is_no_option' => 'There is no any options setting for this inputType',
@@ -143,7 +141,6 @@ return [
     'online' => 'Online',
     'controller_route_404' => 'Controller / Route Not Found',
     'home' => 'Home',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => 'Privileges Roles',
     'Add_New_Privilege' => 'Add New Privilege',
@@ -184,11 +181,7 @@ return [
     'all_rights_reserved' => 'All Rights Reserved',
     'copyright' => 'Copyright',
     'powered_by' => 'Powered by',
-
-    'notification_you_have' => 'You Have',
-    'notification_notification' => 'Notifications',
-    'notification_new' => 'You have a new notification !',
-
+    
     'login_register_style' => 'Login Register Style',
     'email_setting' => 'Email Setting',
     'application_setting' => 'Application Setting',

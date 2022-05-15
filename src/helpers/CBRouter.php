@@ -111,7 +111,7 @@ class CBRouter
             if (request()->is(config('crudbooster.ADMIN_PATH'))) {
                 $menus = db('cms_menus')->where('is_dashboard', 1)->first();
                 if ($menus) {
-                    Route::get('/', 'StatisticBuilderController@getDashboard');
+                    
                 } else {
                     CRUDBooster::routeController('/', 'AdminController', static::$cb_namespace);
                 }

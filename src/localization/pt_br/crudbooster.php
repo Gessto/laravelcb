@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => 'Esqueceu a senha',
     'forgot_message' => 'Digite seu e-mail para requisitar a senha',
     "forgot_text_try_again" => "Tentar login novamente ?",
-    'text_no_notification' => "Você tem 0 notificação",
-    'text_view_all_notification' => 'Visualizar tudo',
     'label_button_profile' => "Perfil",
     'filter_dialog_title' => 'Filtro e ordernação avançados',
     'text_enter_the_password' => 'Digite sua senha para recuperar sua sessão',
@@ -125,7 +123,6 @@ return [
     'online' => 'Online',
     'controller_route_404' => 'Controle / Rota não encontra]',
     'home' => 'Inicio',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => 'Privilégios',
     'Add_New_Privilege' => 'Adicionar novo Privilégio',
@@ -166,10 +163,6 @@ return [
     'all_rights_reserved' => 'Todos os Direitos Reservados',
     'copyright' => 'Copyright',
     'powered_by' => 'Desenvolvido por',
-
-    'notification_you_have' => 'você tem',
-    'notification_notification' => 'Notificações',
-    'notification_new' => 'Você tem uma nova notificação!',
 
     'login_register_style' => 'Login Register Style',
     'email_setting' => 'Configurações de E-mail',

@@ -7,8 +7,6 @@ return [
     'page_title_forgot' => 'Lupa Password ?',
     'forgot_message' => 'Masukkan email terdaftar anda untuk meminta password ulang.',
     "forgot_text_try_again" => "Cobalah login kembali ?",
-    'text_no_notification' => "Anda mempunya 0 notifikasi",
-    'text_view_all_notification' => 'Lihat Semua',
     'label_button_profile' => "Profil",
     'filter_dialog_title' => 'Pengurutan dan Filterisasi',
     'there_is_no_option' => 'Anda belum mengatur untuk tipe ini',
@@ -140,7 +138,6 @@ return [
     'online' => 'Online',
     'controller_route_404' => 'Controller / Route tidak tersedia',
     'home' => 'Halaman Awal',
-    'Notifications' => 'Notifications',
     'Privileges' => 'Privileges',
     'Privileges_Roles' => 'Detil Hak Akses',
     'Add_New_Privilege' => 'Tambah Hak Akses',
@@ -182,9 +179,6 @@ return [
     'copyright' => 'Copyright',
     'powered_by' => 'Powered by',
 
-    'notification_you_have' => 'Anda memiliki',
-    'notification_notification' => 'Notifikasi',
-    'notification_new' => 'Anda mendapatkan notifikasi baru !',
 
     'login_register_style' => 'Login Register Style',
     'email_setting' => 'Pengaturan Email',
