@@ -146,7 +146,7 @@
                             <li data-id='{{$menu->id}}' data-name='{{$menu->name}}' class="list-group-item">
                                 <div class='{{$menu->is_dashboard?"is-dashboard":""}} class="list-group-item"' title="{{$menu->is_dashboard?'This is setted as Dashboard':''}}">
                                     <i class='{{($menu->is_dashboard)?"icon-is-dashboard fa fa-dashboard":$menu->icon}}'></i> {{$menu->name}} <span
-                                            class='pull-right'><a class='btn btn-icon btn-primary fas fa-edit' title='Edit'
+                                            class='pull-right' style="float: right;"><a class='btn btn-icon btn-primary fas fa-edit' title='Edit'
                                                                   href='{{route("MenusControllerGetEdit")."/".$menu->id }}?return_url={{urlencode(Request::fullUrl())}}'></a>&nbsp;&nbsp;<a
                                                 title='Delete' class='btn btn-icon btn-primary fa fa-trash'
                                                 onclick='{{CRUDBooster::deleteConfirm(route("MenusControllerGetDelete") ."/".$menu->id) }}'
@@ -167,7 +167,7 @@
                                                 <div class='{{$child->is_dashboard?"is-dashboard":""}}'
                                                      title="{{$child->is_dashboard?'This is setted as Dashboard':''}}"><i
                                                             class='{{($child->is_dashboard)?"icon-is-dashboard fa fa-dashboard":$child->icon}}'></i> {{$child->name}}
-                                                    <span class='pull-right'>
+                                                    <span class='pull-right' style="float: right;">
                                                         <a class='btn btn-icon btn-primary fas fa-edit' title='Edit'
                                                                                 href='{{ route("MenusControllerGetEdit") ."/".$child->id }}?return_url={{urlencode(Request::fullUrl())}}'></a>&nbsp;&nbsp;<a
                                                                 title="Delete" class=' btn btn-icon btn-primaryfa fa-trash'
@@ -198,7 +198,7 @@
                     <ul class='draggable-menu draggable-menu-inactive'>
                         @foreach($menu_inactive as $menu)
                             <li data-id='{{$menu->id}}' data-name='{{$menu->name}}' class="list-group-item">
-                                <div><i class='{{$menu->icon}}'></i> {{$menu->name}} <span class='pull-right'><a class='btn btn-icon btn-primary fas fa-edit' title='Edit'
+                                <div><i class='{{$menu->icon}}'></i> {{$menu->name}} <span class='pull-right' style="float: right;"><a class='btn btn-icon btn-primary fas fa-edit' title='Edit'
                                                                                                                  href='{{route("MenusControllerGetEdit",["id"=>$menu->id])}}?return_url={{urlencode(Request::fullUrl())}}'></a>&nbsp;&nbsp;<a
                                                 title='Delete' class='btn btn-icon btn-primary fa fa-trash'
                                                 onclick='{{CRUDBooster::deleteConfirm(route("MenusControllerGetDelete",["id"=>$menu->id]))}}'
@@ -207,7 +207,7 @@
                                     @if($menu->children)
                                         @foreach($menu->children as $child)
                                             <li data-id='{{$child->id}}' data-name='{{$child->name}}' class="list-group-item">
-                                                <div><i class='{{$child->icon}}'></i> {{$child->name}} <span class='pull-right'><a class='btn btn-icon btn-primary fas fa-edit'
+                                                <div><i class='{{$child->icon}}'></i> {{$child->name}} <span class='pull-right' style="float: right;"><a class='btn btn-icon btn-primary fas fa-edit'
                                                                                                                                    title='Edit'
                                                                                                                                    href='{{route("MenusControllerGetEdit",["id"=>$child->id])}}?return_url={{urlencode(Request::fullUrl())}}'></a>&nbsp;&nbsp;<a
                                                                 title="Delete" class='btn btn-icon btn-primary fa fa-trash'
