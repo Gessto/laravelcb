@@ -6,6 +6,7 @@ namespace crocodicstudio\crudbooster\helpers;
 use crocodicstudio\crudbooster\middlewares\CBAuthAPI;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use DB;
 
 class CBRouter
 {
@@ -133,7 +134,10 @@ class CBRouter
                     'cms_privileges_roles',
                     'cms_settings',
                     'cms_statistics',
-                    'cms_statistic_components'
+                    'cms_statistic_components',
+                    'migrations',
+                    'failed_jobs',
+                    'password_resets'
                 ];
                 $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
                 foreach($tables as $table){
