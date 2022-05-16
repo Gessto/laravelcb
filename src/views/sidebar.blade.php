@@ -102,6 +102,12 @@
                     </ul>
                 </li>
 
+                <li class="{{ (Request::is(config('crudbooster.ADMIN_PATH').'/generate-models')) ? 'active' : '' }}">
+                    <a href='{{'generate-models'}}'>
+                        <i class="fas fa-book-reader"></i>
+                        <span>Generate models</span>
+                    </a>
+                </li>
 
                 <li class="dropdown">
                     <a href="#" class="nav-link has-dropdown">
