@@ -60,6 +60,15 @@ class CBRouter
             Route::get('logout', ['uses' => 'AdminController@getLogout', 'as' => 'getLogout']);
             Route::post('login', ['uses' => 'AdminController@postLogin', 'as' => 'postLogin']);
             Route::get('login', ['uses' => 'AdminController@getLogin', 'as' => 'getLogin']);
+
+            Route::get('generate-models',function (){
+                $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+                foreach($tables as $table){
+                    $modalName = ucwords(str_replace("_", " ", $table));
+                    $modalName = str_replace(" ", "", $modalName);
+                    \Artisan::call('krlove:generate:model '.$modalName.' --table-name='.$table);
+                }
+            });
         });
     }
 
