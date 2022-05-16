@@ -60,45 +60,6 @@ class CBRouter
             Route::get('logout', ['uses' => 'AdminController@getLogout', 'as' => 'getLogout']);
             Route::post('login', ['uses' => 'AdminController@postLogin', 'as' => 'postLogin']);
             Route::get('login', ['uses' => 'AdminController@getLogin', 'as' => 'getLogin']);
-
-            Route::get('generate-models',function (){
-                $protected = [
-                    'cms_apicustom',
-                    'cms_apikey',
-                    'cms_dashboard',
-                    'cms_email_queues',
-                    'cms_email_templates',
-                    'cms_logs',
-                    'cms_menus',
-                    'cms_menus_privileges',
-                    'cms_moduls',
-                    'cms_notifications',
-                    'cms_privileges',
-                    'cms_privileges_roles',
-                    'cms_settings',
-                    'cms_statistics',
-                    'cms_statistic_components'
-                ];
-                $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
-                foreach($tables as $table){
-                    if (in_array($table, $protected)) {
-
-                    } else {
-                        if (!file_exists(app_path('Models'))) {
-                            mkdir(app_path('Models'), 0777, true);
-                        }
-                        $modalName = ucwords(str_replace("_", " ", $table));
-                        $modalName = str_replace(" ", "", $modalName);
-
-                        if (file_exists(app_path('Models/'.$modalName.'.php'))) {
-                            echo 'Exist '.app_path('Modals/'.$modalName.'.php<br>');
-                        }else{
-                            echo 'NOT Exist '.app_path('Modals/'.$modalName.'.php<br>');
-                            \Artisan::call('krlove:generate:model '.$modalName.' --table-name='.$table.' --output-path='.app_path('Models'));
-                        }
-                    }
-                }
-            });
         });
     }
 
@@ -156,6 +117,44 @@ class CBRouter
 
             CRUDBooster::routeController('api_generator', 'ApiCustomController', static::$cb_namespace);
 
+            Route::get('generate-models',function (){
+                $protected = [
+                    'cms_apicustom',
+                    'cms_apikey',
+                    'cms_dashboard',
+                    'cms_email_queues',
+                    'cms_email_templates',
+                    'cms_logs',
+                    'cms_menus',
+                    'cms_menus_privileges',
+                    'cms_moduls',
+                    'cms_notifications',
+                    'cms_privileges',
+                    'cms_privileges_roles',
+                    'cms_settings',
+                    'cms_statistics',
+                    'cms_statistic_components'
+                ];
+                $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+                foreach($tables as $table){
+                    if (in_array($table, $protected)) {
+
+                    } else {
+                        if (!file_exists(app_path('Models'))) {
+                            mkdir(app_path('Models'), 0777, true);
+                        }
+                        $modalName = ucwords(str_replace("_", " ", $table));
+                        $modalName = str_replace(" ", "", $modalName);
+
+                        if (file_exists(app_path('Models/'.$modalName.'.php'))) {
+                            echo 'Exist '.app_path('Modals/'.$modalName.'.php<br>');
+                        }else{
+                            echo 'NOT Exist '.app_path('Modals/'.$modalName.'.php<br>');
+                            \Artisan::call('krlove:generate:model '.$modalName.' --table-name='.$table.' --output-path='.app_path('Models'));
+                        }
+                    }
+                }
+            });
             // Todo: change table
             $modules = [];
             try {
