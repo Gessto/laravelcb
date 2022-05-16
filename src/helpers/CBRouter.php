@@ -158,6 +158,8 @@ class CBRouter
                         }
                     }
                 }
+                echo '<script>window.history.back()</script>';
+
             });
             // Todo: change table
             $modules = [];
