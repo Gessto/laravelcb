@@ -84,14 +84,17 @@ class CBRouter
                     if (in_array($table, $protected)) {
 
                     } else {
+                        if (!file_exists(app_path('Models'))) {
+                            mkdir(app_path('Models'), 0777, true);
+                        }
                         $modalName = ucwords(str_replace("_", " ", $table));
                         $modalName = str_replace(" ", "", $modalName);
 
-                        if (file_exists(app_path($modalName.'.php'))) {
-                            echo 'Exist '.app_path($modalName.'.php<br>');
+                        if (file_exists(app_path('Models/'.$modalName.'.php'))) {
+                            echo 'Exist '.app_path('Modals/'.$modalName.'.php<br>');
                         }else{
-                            echo 'NOT Exist '.app_path($modalName.'.php<br>');
-                            \Artisan::call('krlove:generate:model '.$modalName.' --table-name='.$table);
+                            echo 'NOT Exist '.app_path('Modals/'.$modalName.'.php<br>');
+                            \Artisan::call('krlove:generate:model '.$modalName.' --table-name='.$table.' --output-path='.app_path('Models'));
                         }
                     }
                 }
