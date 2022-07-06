@@ -16,6 +16,7 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
     "type": "git"
 }
 ]
+Command: composer update --prefer-source
 ```
 ### [Documentation](/docs/en/index.md)
 
