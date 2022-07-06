@@ -1,6 +1,6 @@
 # Welcome To Webillium CMS
 
-CRUDBooster is CRUD Generator for laravel, with the most important features web application development. It's easy, flexible, and powerful.
+Webillium CMS is CRUD Generator for laravel, with the most important features web application development. It's easy, flexible, and powerful.
 
 ## System Requirement and Basic Technical Knowledge
 - Web Server as:
