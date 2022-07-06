@@ -38,7 +38,7 @@ DB_PASSWORD=**password**
 
 3. Run the following command at the terminal
 ```php
-$ php artisan crudbooster:install
+$ php artisan webillium:install
 ```
 
 ## Backend URL
