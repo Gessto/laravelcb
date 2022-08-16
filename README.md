@@ -12,7 +12,7 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
 },
 "repositories": [
 {
-    "url": "https://github.com/Gessto/laravelcb.git",
+    "url": "https://github.com/webtunel/laravelcb",
     "type": "git"
 }
 ]
