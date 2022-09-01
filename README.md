@@ -21,7 +21,7 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
 }
 ]
 Command: composer update --prefer-source
-Command: php artinsan webillium:install
+Command: php artisan webillium:install
 ```
 
 ### [Documentation](/docs/en/index.md)
