@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-          "webillium\\webillium_cms\\": "src/",
+          "crocodicstudio\\crudbooster\\": "src/",
           "Krlove\\EloquentModelGenerator\\": "src/"
         }
       },
@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "webillium\\webillium_cms\\CRUDBoosterServiceProvider"
+                "crocodicstudio\\crudbooster\\CRUDBoosterServiceProvider"
             ]
         }
     }
