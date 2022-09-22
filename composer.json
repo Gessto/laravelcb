@@ -1,5 +1,5 @@
 {
-    "name": "crocodicstudio/crudbooster",
+    "name": "webillium/webillium_cms",
     "description": "Webillium CMS Is CRUD Generator Based On Laravel Easy To Make An Advanced Backend",
     "type": "library",
     "license": "MIT",
@@ -30,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-          "crocodicstudio\\crudbooster\\": "src/",
+          "webillium\\webillium_cms\\": "src/",
           "Krlove\\EloquentModelGenerator\\": "src/"
         }
       },
@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "crocodicstudio\\crudbooster\\CRUDBoosterServiceProvider"
+                "webillium\\webillium_cms\\CRUDBoosterServiceProvider"
             ]
         }
     }
