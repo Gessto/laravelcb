@@ -1,4 +1,4 @@
-<?php namespace webillium/webillium_cms;
+<?php namespace crocodicstudio/crudbooster;
 
 use crocodicstudio\crudbooster\commands\CrudboosterVersionCommand;
 use crocodicstudio\crudbooster\commands\Mailqueues;
