@@ -12,7 +12,7 @@ Webillium CMS is based on Crudbooster with Stisla admin templte.
 
 ```
 "require": {
-    "webillium/webillium_cms": "v5.6.x-dev"
+    "crocodicstudio/crudbooster": "v5.6.x-dev"
 },
 "repositories": [
 {
