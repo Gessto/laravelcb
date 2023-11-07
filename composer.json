@@ -20,7 +20,7 @@
     ],
     "minimum-stability": "stable",
   "require": {
-    "php": "^7.3|^8.0", // Laravel 9 requires PHP 7.3 or higher
+    "php": "^7.3|^8.0|^8.2", // Laravel 9 requires PHP 7.3 or higher
     "barryvdh/laravel-dompdf": "0.8.*",
     "doctrine/dbal": "^2.3|^3.0", // Updated to support Laravel 9 which may require doctrine/dbal 3.*
     "maatwebsite/excel": "^3.1", // Ensure this package is compatible with Laravel 9
